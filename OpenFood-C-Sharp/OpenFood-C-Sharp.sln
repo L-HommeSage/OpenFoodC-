@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenFood-C-Sharp", "OpenFood-C-Sharp\OpenFood-C-Sharp.csproj", "{FEE26092-7B9C-4377-878B-C2170ADC265D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEE26092-7B9C-4377-878B-C2170ADC265D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEE26092-7B9C-4377-878B-C2170ADC265D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEE26092-7B9C-4377-878B-C2170ADC265D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEE26092-7B9C-4377-878B-C2170ADC265D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FCFB24C6-CD53-49EA-8FDF-E4D94B5E1ACB}
+	EndGlobalSection
+EndGlobal
