@@ -12,8 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using OpenFood_C_Sharp.Modele;
-using OpenFood_C_Sharp.Helpers;
+
 namespace OpenFood_C_Sharp
 {
     /// <summary>
@@ -23,10 +22,7 @@ namespace OpenFood_C_Sharp
     {
         public MainWindow()
         {
-            People people =  Request.GetResultAsync("people/1").GetAwaiter().GetResult();
-            
             InitializeComponent();
-            test.Content = people.name;
         }
     }
 }
