@@ -20,19 +20,13 @@ namespace OpenFood_C_Sharp.Helpers
 
         public static async Task<People> GetResultAsync(string path)
         {
-            client.BaseAddress = new Uri("https://swapi.co/api/");
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
+            
             HttpResponseMessage responseMessage = await client.GetAsync(path);
             if (responseMessage.IsSuccessStatusCode)
             {
                 string data = await responseMessage.Content.ReadAsStringAsync();
                 People people = JsonConvert.DeserializeObject<People>(data);
-                Console.WriteLine(data);
-                Console.WriteLine(people.name);
-
-
+              
                 return people;
             }
             else
@@ -40,12 +34,21 @@ namespace OpenFood_C_Sharp.Helpers
                 return null;
             }
         }
-        public static async Task RunAsync()
+        public static async Task<People> RunAsync(string path)
         {
+            People people = null;
             client.BaseAddress = new Uri("https://swapi.co/api/");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            await GetResultAsync("people/1");
+            HttpResponseMessage responseMessage = await client.GetAsync(path);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                string data = await responseMessage.Content.ReadAsStringAsync();
+                people = JsonConvert.DeserializeObject<People>(data);
             }
+            Console.WriteLine(people.name);
+            return people;
+            
+        }
     }
 }
