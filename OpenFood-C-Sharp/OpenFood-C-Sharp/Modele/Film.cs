@@ -8,13 +8,15 @@ namespace OpenFood_C_Sharp.Modele
 {
     class Film
     {
-        string title;
-        int episode_id;
-        string opening_crawl;
-        string director;
-        string producer;
-        string release_date;
-        List<string> species;
+        public string title { get; set; }
+        public int episode_id { get; set; }
+        public string opening_crawl { get; set; }
+        public string director { get; set; }
+        public string producer { get; set; }
+        public string release_date { get; set; }
+        public List<string> species { get; set; }
+        public List<string> characters { get; set; }
+        
 
     }
 }

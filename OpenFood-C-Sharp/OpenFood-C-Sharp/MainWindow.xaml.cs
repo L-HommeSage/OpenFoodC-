@@ -40,10 +40,10 @@ namespace OpenFood_C_Sharp
 
             People people = PeopleViewModel.GetPeople("https://swapi.co/api/people/1");
             Console.WriteLine(people.name);
-           foreach (string i in people.vehicles)
+           foreach (string i in people.films)
             {
-                Console.WriteLine(i);
-
+               Film f =  FilmViewModel.GetFilm(i);
+              Console.WriteLine(  f.title ) ; 
             }
         }
     }
