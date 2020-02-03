@@ -13,7 +13,7 @@ namespace OpenFood_C_Sharp.Modele
         public string height { get; set; }
         public string mass { get; set; }
         public string skinColor { get; set; }
-        
+        public List<string> vehicles { get; set; }
 
     }
  

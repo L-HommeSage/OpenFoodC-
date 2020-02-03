@@ -18,6 +18,7 @@ using Newtonsoft.Json;
 using System.IO;
 using OpenFood_C_Sharp.Modele;
 using OpenFood_C_Sharp.Helpers;
+using OpenFood_C_Sharp.ViewModel;
 namespace OpenFood_C_Sharp
 {
     /// <summary>
@@ -30,31 +31,20 @@ namespace OpenFood_C_Sharp
             
 
             InitializeComponent();
-            HttpWebRequest request = HttpWebRequest.CreateHttp("https://swapi.co/api/people/1");
-            string responseStreamReader;
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            {
-                using (StreamReader reader = new StreamReader(response.GetResponseStream()))
-                {
-                    responseStreamReader = reader.ReadToEnd();
-                }
-            }
-            People people = JsonConvert.DeserializeObject<People>(responseStreamReader);
-            test.Content = people.name;
-            Console.WriteLine(responseStreamReader);
-
-
+            getPeopleExemple();
 
         }
 
-        public async Task<Boolean> AsyncCall()
+        public void getPeopleExemple()
         {
 
-            People people = await Request.RunAsync("people/1");
+            People people = PeopleViewModel.GetPeople("https://swapi.co/api/people/1");
             Console.WriteLine(people.name);
-            test.Content = people.name;
-            return true;
+           foreach (string i in people.vehicles)
+            {
+                Console.WriteLine(i);
 
+            }
         }
     }
 }
