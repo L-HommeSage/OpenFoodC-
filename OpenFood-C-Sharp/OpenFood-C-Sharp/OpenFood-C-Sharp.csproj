@@ -59,6 +59,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Modele\Film.cs" />
+    <Compile Include="Modele\Planet.cs" />
+    <Compile Include="Modele\Species.cs" />
+    <Compile Include="Modele\Starship.cs" />
+    <Compile Include="Modele\Vehicle.cs" />
     <Compile Include="ViewModel\FilmViewModel.cs" />
     <Compile Include="ViewModel\PeopleViewModel.cs" />
     <Page Include="MainWindow.xaml">
