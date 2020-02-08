@@ -65,6 +65,10 @@
     <Compile Include="Modele\Vehicle.cs" />
     <Compile Include="ViewModel\FilmViewModel.cs" />
     <Compile Include="ViewModel\PeopleViewModel.cs" />
+    <Compile Include="ViewModel\PlanetViewModel.cs" />
+    <Compile Include="ViewModel\SpeciesViewModel.cs" />
+    <Compile Include="ViewModel\StarshipViewModel.cs" />
+    <Compile Include="ViewModel\VehicleViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
