@@ -19,6 +19,8 @@ using System.IO;
 using OpenFood_C_Sharp.Modele;
 using OpenFood_C_Sharp.Helpers;
 using OpenFood_C_Sharp.ViewModel;
+using System.Collections.ObjectModel;
+
 namespace OpenFood_C_Sharp
 {
     /// <summary>
@@ -37,6 +39,9 @@ namespace OpenFood_C_Sharp
 
         public void getPeopleExemple()
         {
+
+           /// ObservableCollection<People> A = PeopleViewModel.GetListOfPeople();
+
 
             People people = PeopleViewModel.GetPeople("https://swapi.co/api/people/1");
             Console.WriteLine(people.name);
