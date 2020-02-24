@@ -33,7 +33,18 @@ namespace OpenFood_C_Sharp
             
 
             InitializeComponent();
+            peopleButton.Click += GetPeople_Click;
             getPeopleExemple();
+
+        }
+        private void GetPeople_Click(object sender, EventArgs e)
+        {
+            List<People> peoples = PeopleViewModel.GetAllPeople();        
+            foreach(People people in peoples)
+            {
+                ListElements.Items.Add(people.name);
+
+            }
 
         }
 
