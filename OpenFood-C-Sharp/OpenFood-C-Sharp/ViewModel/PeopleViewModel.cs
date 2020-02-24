@@ -31,20 +31,35 @@ namespace OpenFood_C_Sharp.ViewModel
 
         public static List<People> GetAllPeople()
         {
-            HttpWebRequest request = HttpWebRequest.CreateHttp("https://swapi.co/api/people/");
-            string responseStreamReader;
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            {
-                using (StreamReader reader = new StreamReader(response.GetResponseStream()))
-                {
-                    responseStreamReader = reader.ReadToEnd();
-                }
-            }
+            JObject rss;
+            string json = @"[]";
+            JArray results = JArray.Parse(json);
+            int page = 1;
+            int peopleCount;
 
-            JObject rss = JObject.Parse(responseStreamReader); 
-            JArray results = (JArray)rss["results"];
-            Console.WriteLine(results.ToString());
-            return JsonConvert.DeserializeObject<List<People>>(results.ToString());
+            do
+            {
+                // Requete http a la page "page"
+                HttpWebRequest request = HttpWebRequest.CreateHttp("https://swapi.co/api/people/?page="+page);
+                string responseStreamReader;
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                {
+                    using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                    {
+                        responseStreamReader = reader.ReadToEnd();
+                    }
+
+                }
+                // Concatenation du tab result du json
+                rss = JObject.Parse(responseStreamReader);
+                peopleCount = (int)rss["count"];
+                results.Merge((JArray)rss["results"]);
+
+                // Incrementationdu numero de page
+                page++;
+            } while (results.Count() != peopleCount);
+
+                return JsonConvert.DeserializeObject<List<People>>(results.ToString());
 
         }
         /*
