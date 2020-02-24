@@ -20,6 +20,7 @@ using OpenFood_C_Sharp.Modele;
 using OpenFood_C_Sharp.Helpers;
 using OpenFood_C_Sharp.ViewModel;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace OpenFood_C_Sharp
 {
@@ -34,7 +35,29 @@ namespace OpenFood_C_Sharp
 
             InitializeComponent();
             peopleButton.Click += GetPeople_Click;
-            getPeopleExemple();
+            ListElements.MouseDoubleClick += CallPage;
+
+        }
+        private void CallPage(object sender, MouseEventArgs e)
+        {
+            switch (ListElements.SelectedItem.GetType().ToString()) 
+            {
+                case "OpenFood_C_Sharp.Modele.People":
+                 People p = (People)ListElements.SelectedItem;
+                   
+                    break;
+                case "OpenFood_C_Sharp.Modele.Film":
+                   Film f = (Film)ListElements.SelectedItem;
+                    break;
+
+
+            }
+
+          
+
+           
+
+          
 
         }
         private void GetPeople_Click(object sender, EventArgs e)
@@ -42,7 +65,9 @@ namespace OpenFood_C_Sharp
             List<People> peoples = PeopleViewModel.GetAllPeople();        
             foreach(People people in peoples)
             {
-                ListElements.Items.Add(people.name);
+                ListElements.Items.Add(people);
+                
+
 
             }
 

@@ -57,7 +57,7 @@ namespace OpenFood_C_Sharp.ViewModel
 
                 // Incrementationdu numero de page
                 page++;
-            } while (results.Count() != peopleCount);
+            } while (results.Count() != 10);
 
                 return JsonConvert.DeserializeObject<List<People>>(results.ToString());
 
