@@ -23,6 +23,7 @@ namespace OpenFood_C_Sharp.Modele
         public List<string> species { get; set; }
         public List<string> starships { get; set; }
         public List<string> vehicles { get; set; }
+        public string url {get;set;}
 
     }
  

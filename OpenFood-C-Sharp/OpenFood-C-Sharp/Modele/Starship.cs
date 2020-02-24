@@ -25,5 +25,7 @@ namespace OpenFood_C_Sharp.Modele
         public List<string> films { get; set; }
         public List<string> pilots { get; set; }
         public string starship_class { get; set; }
+        public string url {get;set;}
+
     }
 }

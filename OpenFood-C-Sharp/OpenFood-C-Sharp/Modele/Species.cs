@@ -22,5 +22,7 @@ namespace OpenFood_C_Sharp.Modele
         public List<string> people { get; set; }
         public List<string> films { get; set; }
         public string skin_colors { get; set; }
+        public string url {get;set;}
+
     }
 }
