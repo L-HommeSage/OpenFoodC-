@@ -16,7 +16,7 @@
         <Button Content="ALL" HorizontalAlignment="Left" Height="40" Margin="10,75,0,0" VerticalAlignment="Top" Width="169"/>
         <Button x:Name="peopleButton" Content="People" HorizontalAlignment="Left" Height="40" Margin="10,120,0,0" VerticalAlignment="Top" Width="169"/>
         <Button Content="Planets" HorizontalAlignment="Left" Height="40" Margin="10,165,0,0" VerticalAlignment="Top" Width="169"/>
-        <Button Content="Films" HorizontalAlignment="Left" Height="40" Margin="10,210,0,0" VerticalAlignment="Top" Width="169"/>
+        <Button x:Name="filmsButton" Content="Films" HorizontalAlignment="Left" Height="40" Margin="10,210,0,0" VerticalAlignment="Top" Width="169"/>
         <Button Content="Species" HorizontalAlignment="Left" Height="40" Margin="10,255,0,0" VerticalAlignment="Top" Width="169"/>
         <Button Content="Vehicles" HorizontalAlignment="Left" Height="40" Margin="10,300,0,0" VerticalAlignment="Top" Width="169"/>
         <Button Content="Starships" HorizontalAlignment="Left" Height="40" Margin="10,345,0,0" VerticalAlignment="Top" Width="169"/>
