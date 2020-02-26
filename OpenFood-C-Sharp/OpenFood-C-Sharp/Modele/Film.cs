@@ -23,6 +23,10 @@ namespace OpenFood_C_Sharp.Modele
         public List<string> vehicles { get; set; }
         public string url {get;set;}
 
+        public override string ToString()
+        {
+            return title;
+        }
 
     }
 }

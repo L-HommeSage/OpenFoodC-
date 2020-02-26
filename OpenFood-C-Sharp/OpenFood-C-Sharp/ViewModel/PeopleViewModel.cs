@@ -62,19 +62,6 @@ namespace OpenFood_C_Sharp.ViewModel
                 return JsonConvert.DeserializeObject<List<People>>(results.ToString());
 
         }
-        /*
-        public static ObservableCollection<People> GetListOfPeople() 
-        {
-            ObservableCollection<People> ListePeople = new ObservableCollection<People>();
-
-            List<People> A = GetAllPeople();
-
-            for (int i = 0 ; i < A.Count ; i++)
-            {
-                ListePeople.Add(A[i]);
-            }
-
-            return ListePeople;
-        }*/
+        
     }
 }
