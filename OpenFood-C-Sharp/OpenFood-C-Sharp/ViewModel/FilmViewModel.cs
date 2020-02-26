@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,6 +9,7 @@ using System.Net;
 using System.IO;
 using OpenFood_C_Sharp.Modele;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace OpenFood_C_Sharp.ViewModel
 {
@@ -28,16 +31,34 @@ namespace OpenFood_C_Sharp.ViewModel
 
         public static List<Film> GetAllFilm()
         {
-            HttpWebRequest request = HttpWebRequest.CreateHttp("https://swapi.co/api/people/");
-            string responseStreamReader;
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            JObject rss;
+            string json = @"[]";
+            JArray results = JArray.Parse(json);
+            int filmCount;
+
+            do
             {
-                using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                // Requete http a la page "page"
+                HttpWebRequest request = HttpWebRequest.CreateHttp("https://swapi.co/api/films/");
+                string responseStreamReader;
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 {
-                    responseStreamReader = reader.ReadToEnd();
+                    using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                    {
+                        responseStreamReader = reader.ReadToEnd();
+                    }
+
                 }
-            }
-            return JsonConvert.DeserializeObject<List<Film>>(responseStreamReader);
+                // Concatenation du tab result du json
+                rss = JObject.Parse(responseStreamReader);
+                filmCount = (int)rss["count"];
+                results.Merge((JArray)rss["results"]);
+
+                // Incrementationdu numero de page
+                
+            } while (results.Count() != 7);
+
+            return JsonConvert.DeserializeObject<List<Film>>(results.ToString());
 
         }
     }

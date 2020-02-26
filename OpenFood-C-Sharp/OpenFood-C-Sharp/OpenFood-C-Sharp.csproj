@@ -63,6 +63,9 @@
     <Compile Include="Modele\Species.cs" />
     <Compile Include="Modele\Starship.cs" />
     <Compile Include="Modele\Vehicle.cs" />
+    <Compile Include="View\PeoplePage.xaml.cs">
+      <DependentUpon>PeoplePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\FilmViewModel.cs" />
     <Compile Include="ViewModel\PeopleViewModel.cs" />
     <Compile Include="ViewModel\PlanetViewModel.cs" />
@@ -82,6 +85,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\PeoplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modele\People.cs" />
@@ -111,8 +118,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

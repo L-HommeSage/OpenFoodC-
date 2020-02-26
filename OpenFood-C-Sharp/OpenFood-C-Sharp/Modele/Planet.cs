@@ -21,5 +21,7 @@ namespace OpenFood_C_Sharp.Modele
         public string rotation_period { get; set; }
         public string surface_water { get; set; }
         public string terrain { get; set; }
+        public string url {get;set;}
+
     }
 }
