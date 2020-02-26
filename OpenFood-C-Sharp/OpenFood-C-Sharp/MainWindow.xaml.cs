@@ -44,7 +44,7 @@ namespace OpenFood_C_Sharp
             {
                 case "OpenFood_C_Sharp.Modele.People":
                  People p = (People)ListElements.SelectedItem;
-                   
+                this.Navigate(new Uri("HomePage.xaml", UriKind.Relative));
                     break;
                 case "OpenFood_C_Sharp.Modele.Film":
                    Film f = (Film)ListElements.SelectedItem;
