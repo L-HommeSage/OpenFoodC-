@@ -36,6 +36,7 @@ namespace OpenFood_C_Sharp
             InitializeComponent();
             peopleButton.Click += GetPeople_Click;
             filmsButton.Click += GetFilm_Click;
+            speciesButton.Click += GetSpecies_Click;
             ListElements.MouseDoubleClick += CallPage;
 
         }
@@ -53,13 +54,6 @@ namespace OpenFood_C_Sharp
 
 
             }
-
-          
-
-           
-
-          
-
         }
         private void GetPeople_Click(object sender, EventArgs e)
         {
@@ -75,9 +69,20 @@ namespace OpenFood_C_Sharp
         private void GetFilm_Click(object sender, EventArgs e)
         {
             List<Film> films = FilmViewModel.GetAllFilm();
+            ListElements.Items.Clear();
             foreach (Film film in films)
             {
                 ListElements.Items.Add(film);
+            }
+
+        }
+        private void GetSpecies_Click(object sender, EventArgs e)
+        {
+            List<Species> species = SpeciesViewModel.GetAllSpecies();
+            ListElements.Items.Clear();
+            foreach (Species spe in species)
+            {
+                ListElements.Items.Add(spe);
             }
 
         }
