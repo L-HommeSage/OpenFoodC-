@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,6 +9,7 @@ using System.Net;
 using System.IO;
 using OpenFood_C_Sharp.Modele;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace OpenFood_C_Sharp.ViewModel
 {
@@ -25,19 +28,38 @@ namespace OpenFood_C_Sharp.ViewModel
             }
             return JsonConvert.DeserializeObject<Planet>(responseStreamReader);
         }
-
-        public static List<Planet> GetAllPlanet()
+        
+        public static List<Planet> GetAllPlanets()
         {
-            HttpWebRequest request = HttpWebRequest.CreateHttp("https://swapi.co/api/planets/");
-            string responseStreamReader;
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            JObject rss;
+            string json = @"[]";
+            JArray results = JArray.Parse(json);
+            int page = 1;
+            int planetsCount;
+
+            do
             {
-                using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                // Requete http a la page "page"
+                HttpWebRequest request = HttpWebRequest.CreateHttp("https://swapi.co/api/planets/?page=" + page);
+                string responseStreamReader;
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 {
-                    responseStreamReader = reader.ReadToEnd();
+                    using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                    {
+                        responseStreamReader = reader.ReadToEnd();
+                    }
+
                 }
-            }
-            return JsonConvert.DeserializeObject<List<Planet>>(responseStreamReader);
+                // Concatenation du tab result du json
+                rss = JObject.Parse(responseStreamReader);
+                planetsCount = (int)rss["count"];
+                results.Merge((JArray)rss["results"]);
+
+                // Incrementationdu numero de page
+                page++;
+            } while (results.Count() != planetsCount);
+
+            return JsonConvert.DeserializeObject<List<Planet>>(results.ToString());
 
         }
     }
