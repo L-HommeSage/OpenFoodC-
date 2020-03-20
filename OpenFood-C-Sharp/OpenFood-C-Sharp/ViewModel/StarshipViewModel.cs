@@ -13,9 +13,9 @@ using Newtonsoft.Json.Linq;
 
 namespace OpenFood_C_Sharp.ViewModel
 {
-    class PeopleViewModel
+    class StarshipViewModel
     {
-        public static People GetPeople(string url)
+        public static Starship GetStarship(string url)
         {
             HttpWebRequest request = HttpWebRequest.CreateHttp(url);
             string responseStreamReader;
@@ -26,21 +26,21 @@ namespace OpenFood_C_Sharp.ViewModel
                     responseStreamReader = reader.ReadToEnd();
                 }
             }
-            return  JsonConvert.DeserializeObject<People>(responseStreamReader);
+            return JsonConvert.DeserializeObject<Starship>(responseStreamReader);
         }
 
-        public static List<People> GetAllPeople()
+        public static List<Starship> GetAllStarships()
         {
             JObject rss;
             string json = @"[]";
             JArray results = JArray.Parse(json);
             int page = 1;
-            int peopleCount;
+            int starshipsCount;
 
             do
             {
                 // Requete http a la page "page"
-                HttpWebRequest request = HttpWebRequest.CreateHttp("https://swapi.co/api/people/?page="+page);
+                HttpWebRequest request = HttpWebRequest.CreateHttp("https://swapi.co/api/starships/?page=" + page);
                 string responseStreamReader;
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 {
@@ -52,16 +52,15 @@ namespace OpenFood_C_Sharp.ViewModel
                 }
                 // Concatenation du tab result du json
                 rss = JObject.Parse(responseStreamReader);
-                peopleCount = (int)rss["count"];
+                starshipsCount = (int)rss["count"];
                 results.Merge((JArray)rss["results"]);
 
                 // Incrementationdu numero de page
                 page++;
-            } while (results.Count() != 10);
+            } while (results.Count() != starshipsCount);
 
-                return JsonConvert.DeserializeObject<List<People>>(results.ToString());
+            return JsonConvert.DeserializeObject<List<Starship>>(results.ToString());
 
         }
-        
     }
 }

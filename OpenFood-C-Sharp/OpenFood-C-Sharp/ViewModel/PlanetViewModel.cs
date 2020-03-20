@@ -13,9 +13,9 @@ using Newtonsoft.Json.Linq;
 
 namespace OpenFood_C_Sharp.ViewModel
 {
-    class PeopleViewModel
+    class PlanetViewModel
     {
-        public static People GetPeople(string url)
+        public static Planet GetPlanet(string url)
         {
             HttpWebRequest request = HttpWebRequest.CreateHttp(url);
             string responseStreamReader;
@@ -26,21 +26,21 @@ namespace OpenFood_C_Sharp.ViewModel
                     responseStreamReader = reader.ReadToEnd();
                 }
             }
-            return  JsonConvert.DeserializeObject<People>(responseStreamReader);
+            return JsonConvert.DeserializeObject<Planet>(responseStreamReader);
         }
-
-        public static List<People> GetAllPeople()
+        
+        public static List<Planet> GetAllPlanets()
         {
             JObject rss;
             string json = @"[]";
             JArray results = JArray.Parse(json);
             int page = 1;
-            int peopleCount;
+            int planetsCount;
 
             do
             {
                 // Requete http a la page "page"
-                HttpWebRequest request = HttpWebRequest.CreateHttp("https://swapi.co/api/people/?page="+page);
+                HttpWebRequest request = HttpWebRequest.CreateHttp("https://swapi.co/api/planets/?page=" + page);
                 string responseStreamReader;
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 {
@@ -52,16 +52,16 @@ namespace OpenFood_C_Sharp.ViewModel
                 }
                 // Concatenation du tab result du json
                 rss = JObject.Parse(responseStreamReader);
-                peopleCount = (int)rss["count"];
+                planetsCount = (int)rss["count"];
                 results.Merge((JArray)rss["results"]);
 
                 // Incrementationdu numero de page
                 page++;
-            } while (results.Count() != 10);
+            } while (results.Count() != planetsCount);
 
-                return JsonConvert.DeserializeObject<List<People>>(results.ToString());
+            return JsonConvert.DeserializeObject<List<Planet>>(results.ToString());
 
         }
-        
     }
 }
+
