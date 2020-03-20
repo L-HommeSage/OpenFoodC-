@@ -27,5 +27,12 @@ namespace OpenFood_C_Sharp.Modele
         public string starship_class { get; set; }
         public string url {get;set;}
 
+        public override string ToString()
+        {
+            return name;
+        }
+
     }
+
+    
 }

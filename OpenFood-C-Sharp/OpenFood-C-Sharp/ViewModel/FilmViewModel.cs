@@ -56,7 +56,7 @@ namespace OpenFood_C_Sharp.ViewModel
 
                 // Incrementationdu numero de page
                 
-            } while (results.Count() != 7);
+            } while (results.Count() != filmCount);
 
             return JsonConvert.DeserializeObject<List<Film>>(results.ToString());
 

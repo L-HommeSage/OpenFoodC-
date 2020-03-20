@@ -36,6 +36,10 @@ namespace OpenFood_C_Sharp
             InitializeComponent();
             peopleButton.Click += GetPeople_Click;
             filmsButton.Click += GetFilm_Click;
+            speciesButton.Click += GetSpecies_Click;
+            starshipsButton.Click += GetStarships_Click;
+            planetsButton.Click += GetPlanets_Click;
+            vehiclesButton.Click += GetVehicles_Click;
             ListElements.MouseDoubleClick += CallPage;
 
         }
@@ -54,13 +58,6 @@ namespace OpenFood_C_Sharp
 
 
             }
-
-          
-
-           
-
-          
-
         }
         private void GetPeople_Click(object sender, EventArgs e)
         {
@@ -76,12 +73,57 @@ namespace OpenFood_C_Sharp
         private void GetFilm_Click(object sender, EventArgs e)
         {
             List<Film> films = FilmViewModel.GetAllFilm();
+            ListElements.Items.Clear();
             foreach (Film film in films)
             {
                 ListElements.Items.Add(film);
             }
 
         }
+        private void GetSpecies_Click(object sender, EventArgs e)
+        {
+            List<Species> species = SpeciesViewModel.GetAllSpecies();
+            ListElements.Items.Clear();
+            foreach (Species spe in species)
+            {
+                ListElements.Items.Add(spe);
+            }
+
+        }
+
+        private void GetStarships_Click(object sender, EventArgs e)
+        {
+            List<Starship> starship = StarshipViewModel.GetAllStarships();
+            ListElements.Items.Clear();
+            foreach (Starship sta in starship)
+            {
+                ListElements.Items.Add(sta);
+            }
+
+        }
+
+        private void GetVehicles_Click(object sender, EventArgs e)
+        {
+            List<Vehicle> vehicles = VehicleViewModel.GetAllVehicles();
+            ListElements.Items.Clear();
+            foreach (Vehicle ve in vehicles)
+            {
+                ListElements.Items.Add(ve);
+            }
+
+        }
+
+        private void GetPlanets_Click(object sender, EventArgs e)
+        {
+            List<Planet> planets = PlanetViewModel.GetAllPlanets();
+            ListElements.Items.Clear();
+            foreach (Planet pla in planets)
+            {
+                ListElements.Items.Add(pla);
+            }
+
+        }
+        
 
         public void getPeopleExemple()
         {

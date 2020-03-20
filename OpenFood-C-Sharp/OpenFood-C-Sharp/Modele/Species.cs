@@ -24,5 +24,10 @@ namespace OpenFood_C_Sharp.Modele
         public string skin_colors { get; set; }
         public string url {get;set;}
 
+        public override string ToString()
+        {
+            return name;
+        }
+
     }
 }
