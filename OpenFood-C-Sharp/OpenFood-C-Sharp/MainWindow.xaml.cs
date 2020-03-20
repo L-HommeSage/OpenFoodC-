@@ -45,15 +45,30 @@ namespace OpenFood_C_Sharp
         }
         private void CallPage(object sender, MouseEventArgs e)
         {
-            switch (ListElements.SelectedItem.GetType().ToString()) 
+            /* switch (ListElements.SelectedItem.GetType().ToString()) 
+             {
+                 case "OpenFood_C_Sharp.Modele.People":
+                  People p = (People)ListElements.SelectedItem;
+                     PeoplePage peoplePage = new PeoplePage(p.url);
+                     this.Content = peoplePage;
+                     break;
+                 case "OpenFood_C_Sharp.Modele.Film":
+                    Film f = (Film)ListElements.SelectedItem;
+                     break;
+
+
+             }*/
+
+            switch (ListElements.SelectedItem.GetType().ToString())
             {
                 case "OpenFood_C_Sharp.Modele.People":
-                 People p = (People)ListElements.SelectedItem;
-                    PeoplePage peoplePage = new PeoplePage(p.url);
-                    this.Content = peoplePage;
+                    People p = (People)ListElements.SelectedItem;
+                    Window1 peopleWindow = new Window1(p.url);
+                    peopleWindow.Show();
+         
                     break;
                 case "OpenFood_C_Sharp.Modele.Film":
-                   Film f = (Film)ListElements.SelectedItem;
+                    Film f = (Film)ListElements.SelectedItem;
                     break;
 
 
