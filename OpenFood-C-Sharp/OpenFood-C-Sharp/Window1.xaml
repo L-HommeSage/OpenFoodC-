@@ -10,8 +10,10 @@
         <Label>Name :</Label>
         <Label x:Name="name" Margin="44,0,-44,0"></Label>
 
-        <Label x:Name="height" Margin="0,40,0,-40">Height :</Label>
+        <Label Margin="0,40,0,20">Height :</Label>
+        <Label x:Name="height" Margin="0,40,0,20">Height :</Label>
 
-        <Label x:Name="mass" Margin="0,26,0,-26">Mass:</Label>
+        <Label  Margin="0,22,0,-22">Mass:</Label>
+        <Label x:Name="mass" Margin="44,22,-44,-22"></Label>
     </Grid>
 </Window>

@@ -27,12 +27,15 @@ namespace OpenFood_C_Sharp
         {
             InitializeComponent();
         }
-         public void feelContent(String url)
+         public void feelContent(Page p)         
         {
-            People people = PeopleViewModel.GetPeople(url);
+            this.Content = p;
+            /*
+             * People people = PeopleViewModel.GetPeople(url);
             name.Content = people.name;
             mass.Content = people.mass;
             height.Content = people.height;
+            */
         }
     }
 }

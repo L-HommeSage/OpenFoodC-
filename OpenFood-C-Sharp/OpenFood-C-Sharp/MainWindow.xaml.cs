@@ -19,6 +19,7 @@ using System.IO;
 using OpenFood_C_Sharp.Modele;
 using OpenFood_C_Sharp.Helpers;
 using OpenFood_C_Sharp.ViewModel;
+using OpenFood_C_Sharp.View;
 using System.Collections.ObjectModel;
 using System.Windows;
 
@@ -29,7 +30,7 @@ namespace OpenFood_C_Sharp
     /// </summary>
     public partial class MainWindow : Window
     {
-        Window1 peopleWindow = new Window1();
+        Window1 Window = new Window1();
         public MainWindow()
         {
             
@@ -64,12 +65,16 @@ namespace OpenFood_C_Sharp
             {
                 case "OpenFood_C_Sharp.Modele.People":
                     People p = (People)ListElements.SelectedItem;
-                    peopleWindow.feelContent(p.url);
-                    peopleWindow.Show();
+                    PeoplePage peoplePage = new PeoplePage(p.url);
+                    Window.feelContent(peoplePage);
+                    Window.Show();
          
                     break;
                 case "OpenFood_C_Sharp.Modele.Film":
                     Film f = (Film)ListElements.SelectedItem;
+                    FilmPage filmPage = new FilmPage(f.url);
+                    Window.feelContent(filmPage);
+                    Window.Show();
                     break;
 
 
