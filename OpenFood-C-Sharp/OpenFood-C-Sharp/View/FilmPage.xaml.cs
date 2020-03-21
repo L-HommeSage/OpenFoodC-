@@ -43,13 +43,15 @@ namespace OpenFood_C_Sharp.View
             TabItem tabItem = new TabItem();
             Frame tabFrame = new Frame();
             tabFrame.Content = peoplePage;
-
+            this.Content = tabFrame;
+/*
             tabItem.Header = p.ToString();
 
             tabItem.Content = tabFrame;
             PeopleTab.Items.Add(tabItem);
             PeopleTab.SelectedItem = tabItem;
             PeopleTab.Visibility = Visibility.Visible;
+            */
         }
     }
 }
