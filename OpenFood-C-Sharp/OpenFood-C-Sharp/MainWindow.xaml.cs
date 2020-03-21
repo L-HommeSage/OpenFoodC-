@@ -29,6 +29,7 @@ namespace OpenFood_C_Sharp
     /// </summary>
     public partial class MainWindow : Window
     {
+        Window1 peopleWindow = new Window1();
         public MainWindow()
         {
             
@@ -41,6 +42,7 @@ namespace OpenFood_C_Sharp
             planetsButton.Click += GetPlanets_Click;
             vehiclesButton.Click += GetVehicles_Click;
             ListElements.MouseDoubleClick += CallPage;
+
 
         }
         private void CallPage(object sender, MouseEventArgs e)
@@ -58,12 +60,11 @@ namespace OpenFood_C_Sharp
 
 
              }*/
-
             switch (ListElements.SelectedItem.GetType().ToString())
             {
                 case "OpenFood_C_Sharp.Modele.People":
                     People p = (People)ListElements.SelectedItem;
-                    Window1 peopleWindow = new Window1(p.url);
+                    peopleWindow.feelContent(p.url);
                     peopleWindow.Show();
          
                     break;

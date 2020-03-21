@@ -22,13 +22,17 @@ namespace OpenFood_C_Sharp
     /// </summary>
     public partial class Window1 : Window
     {
-        public Window1(String url)
+        
+        public Window1()
         {
             InitializeComponent();
+        }
+         public void feelContent(String url)
+        {
             People people = PeopleViewModel.GetPeople(url);
-            name.Content += people.name;
-            mass.Content += people.mass;
-            height.Content += people.height;
+            name.Content = people.name;
+            mass.Content = people.mass;
+            height.Content = people.height;
         }
     }
 }
