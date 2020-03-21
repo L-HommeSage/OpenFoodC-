@@ -10,17 +10,17 @@
       Title="FilmPage">
 
     <Grid HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="500">
-        <Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
             <ColumnDefinition Width="267*"/>
             <ColumnDefinition Width="233*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="title" Grid.ColumnSpan="2">Title :</Label>
+        
+            <Label x:Name="title" Grid.ColumnSpan="2">Title :</Label>
 
         <Label Margin="0,46,267,376" Grid.ColumnSpan="2" >Characters :</Label>
-        <ListBox x:Name="ListCharacters" Margin="80,46,87,213" Grid.ColumnSpan="1"/>
-        <TabControl x:Name="PeopleTab" TabStripPlacement="Top" Margin="93,46,-179,167" Grid.Column="1">
-            
-        </TabControl>
+        <ListBox x:Name="ListCharacters" Margin="80,46,53,326" Grid.ColumnSpan="1"/>
+        <ListBox x:Name="ListSpaceShip" Margin="80,146,53,226" Grid.ColumnSpan="1"/>
+        <Label x:Name="spaceShip" Margin="0,146,192,-146">SpaceShip :</Label>
 
     </Grid>
 </Page>

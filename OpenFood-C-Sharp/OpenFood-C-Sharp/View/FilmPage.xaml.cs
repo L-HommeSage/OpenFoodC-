@@ -26,7 +26,6 @@ namespace OpenFood_C_Sharp.View
         public FilmPage(String url)
         {
             InitializeComponent();
-            PeopleTab.Visibility = Visibility.Hidden;
             Film film = FilmViewModel.GetFilm(url);
             title.Content += film.title;
             ListCharacters.MouseDoubleClick += CallPeople;

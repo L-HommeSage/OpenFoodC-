@@ -36,6 +36,7 @@ namespace OpenFood_C_Sharp
             
 
             InitializeComponent();
+            mainTab.Visibility = Visibility.Hidden;
             peopleButton.Click += GetPeople_Click;
             filmsButton.Click += GetFilm_Click;
             speciesButton.Click += GetSpecies_Click;
@@ -66,8 +67,15 @@ namespace OpenFood_C_Sharp
                 case "OpenFood_C_Sharp.Modele.People":
                     People p = (People)ListElements.SelectedItem;
                     PeoplePage peoplePage = new PeoplePage(p.url);
-                    Window.feelContent(peoplePage);
-                    Window.Show();
+                    Frame peoplePageFrame = new Frame();
+                    peoplePageFrame.Content = peoplePage;
+                    TabItem tabItem = new TabItem();
+                    tabItem.Header = p.ToString();
+                    tabItem.Content = peoplePageFrame;
+                    mainTab.Items.Add(tabItem);
+                    mainTab.SelectedItem = tabItem;
+                    mainTab.Visibility = Visibility.Visible;
+                   
          
                     break;
                 case "OpenFood_C_Sharp.Modele.Film":

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:OpenFood_C_Sharp"
         mc:Ignorable="d"
         Background="LightGray"
-        Title="Star Wars Api" Height="632" Width="462.4">
+        Title="Star Wars Api" Height="632" Width="899.4">
     <Grid HorizontalAlignment="Left" Height="601" VerticalAlignment="Top" Width="448" Margin="0,0,-6.4,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15*"/>
@@ -22,6 +22,9 @@
 
 
         </ListBox>
+        <TabControl x:Name="mainTab" TabStripPlacement="Top" Grid.Column="1" Margin="254,10,-437,10">
+            
+        </TabControl>
     </Grid>
 </Window>
 
