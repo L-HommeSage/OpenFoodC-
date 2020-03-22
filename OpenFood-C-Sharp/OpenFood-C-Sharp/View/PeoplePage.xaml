@@ -10,11 +10,28 @@
 
       Title="PeoplePage">
 
-    <Grid HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="500">
-        <Label x:Name="name">Name : </Label>
+    <Grid HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="500">
+        <Label x:Name="name"  FontSize="40" FontWeight="Bold" Margin="10,10,10,328"></Label>
+        <Label x:Name="gender" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.716,-1.984">Gender:</Label>
+        <Label x:Name="homeworld" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.716,-1.984">Homeworld:</Label>
+        <Label x:Name="species" HorizontalAlignment="Left" Margin="140,103,0,0" VerticalAlignment="Top">Species:</Label>
+        <Label x:Name="height" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.716,-1.984">Height:</Label>
+        <Label x:Name="mass" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.716,-1.984">Mass:</Label>
+        <Label x:Name="birth" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top">Birth year:</Label>
+        <Label x:Name="hair" HorizontalAlignment="Left" Margin="140,129,0,0" VerticalAlignment="Top">Hair color:</Label>
+        <Label x:Name="skin" HorizontalAlignment="Left" Margin="140,155,0,0" VerticalAlignment="Top">Skin color:</Label>
+        <Label x:Name="eye" HorizontalAlignment="Left" Margin="140,181,0,0" VerticalAlignment="Top">Eye color:</Label>
+        <Label x:Name="edited" HorizontalAlignment="Left" Margin="10,339,0,0" VerticalAlignment="Top">Edited:</Label>
+        <Label x:Name="created" HorizontalAlignment="Left" Margin="10,313,0,0" VerticalAlignment="Top">Created:</Label>
 
-        <Label x:Name="height" Margin="0,40,0,-40">Height :</Label>
+        <Label Content="Starships:" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top"/>
+        <Label Content="Vehicles:" HorizontalAlignment="Left" Margin="297,212,0,0" VerticalAlignment="Top"/>
+        <Label Content="Films:" HorizontalAlignment="Left" Margin="297,103,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="listStarships" HorizontalAlignment="Left" Height="70" Margin="10,238,0,0" VerticalAlignment="Top" Width="193"/>
+        <ListBox x:Name="listVehicles" HorizontalAlignment="Left" Height="70" Margin="297,238,0,0" VerticalAlignment="Top" Width="193"/>
+        <ListBox x:Name="listFilms" HorizontalAlignment="Left" Height="78" Margin="297,129,0,0" VerticalAlignment="Top" Width="193"/>
 
-        <Label x:Name="mass" Margin="0,26,0,-26">Mass:</Label>
+
+
     </Grid>
 </Page>
