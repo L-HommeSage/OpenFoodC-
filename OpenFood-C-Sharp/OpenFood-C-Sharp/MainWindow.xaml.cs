@@ -21,7 +21,6 @@ using OpenFood_C_Sharp.Helpers;
 using OpenFood_C_Sharp.ViewModel;
 using OpenFood_C_Sharp.View;
 using System.Collections.ObjectModel;
-using System.Windows;
 
 namespace OpenFood_C_Sharp
 {
@@ -30,8 +29,9 @@ namespace OpenFood_C_Sharp
     /// </summary>
     public partial class MainWindow : Window
     {
-        Window1 Window = new Window1();
         TabItem tabItem = new TabItem();
+        List<string> listcollection = new List<string>();
+        string category = "";
         public MainWindow()
         {
             
@@ -45,24 +45,30 @@ namespace OpenFood_C_Sharp
             planetsButton.Click += GetPlanets_Click;
             vehiclesButton.Click += GetVehicles_Click;
             ListElements.MouseDoubleClick += CallPage;
+            search.TextChanged += textBox_TextChanged;
+
+            listcollection.Clear();
+            foreach(string str in ListElements.Items)
+            {
+                listcollection.Add(str);
+            }
 
 
         }
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine(search.Text);
+            List<People> resultSearch = Request.MakeSearch(category, search.Text);
+            ListElements.Items.Clear();
+            foreach (People element in resultSearch)
+            {
+                ListElements.Items.Add(element);
+
+            }
+        }
         private void CallPage(object sender, MouseEventArgs e)
         {
-            /* switch (ListElements.SelectedItem.GetType().ToString()) 
-             {
-                 case "OpenFood_C_Sharp.Modele.People":
-                  People p = (People)ListElements.SelectedItem;
-                     PeoplePage peoplePage = new PeoplePage(p.url);
-                     this.Content = peoplePage;
-                     break;
-                 case "OpenFood_C_Sharp.Modele.Film":
-                    Film f = (Film)ListElements.SelectedItem;
-                     break;
-
-
-             }*/
+            
             switch (ListElements.SelectedItem.GetType().ToString())
             {
                 case "OpenFood_C_Sharp.Modele.People":
@@ -150,7 +156,7 @@ namespace OpenFood_C_Sharp
                 ListElements.Items.Add(people);
 
             }
-
+            category = "people";
         }
         private void GetFilm_Click(object sender, EventArgs e)
         {
@@ -160,6 +166,7 @@ namespace OpenFood_C_Sharp
             {
                 ListElements.Items.Add(film);
             }
+            category = "films";
 
         }
         private void GetSpecies_Click(object sender, EventArgs e)
@@ -170,6 +177,7 @@ namespace OpenFood_C_Sharp
             {
                 ListElements.Items.Add(spe);
             }
+            category = "species";
 
         }
 
@@ -181,6 +189,7 @@ namespace OpenFood_C_Sharp
             {
                 ListElements.Items.Add(sta);
             }
+            category = "starships";
 
         }
 
@@ -192,7 +201,7 @@ namespace OpenFood_C_Sharp
             {
                 ListElements.Items.Add(ve);
             }
-
+            category = "vehicles";
         }
 
         private void GetPlanets_Click(object sender, EventArgs e)
@@ -203,8 +212,10 @@ namespace OpenFood_C_Sharp
             {
                 ListElements.Items.Add(pla);
             }
+            category = "planets";
 
         }
+        
         
 
         public void getPeopleExemple()

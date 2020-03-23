@@ -18,13 +18,14 @@
         <Button x:Name="speciesButton" Content="Species" HorizontalAlignment="Left" Height="40" Margin="10,255,0,0" VerticalAlignment="Top" Width="169"/>
         <Button x:Name="vehiclesButton" Content="Vehicles" HorizontalAlignment="Left" Height="40" Margin="10,300,0,0" VerticalAlignment="Top" Width="169"/>
         <Button x:Name="starshipsButton" Content="Starships" HorizontalAlignment="Left" Height="40" Margin="10,345,0,0" VerticalAlignment="Top" Width="169"/>
-        <ListBox x:Name="ListElements" HorizontalAlignment="Left" Height="581" Margin="10.2,10,0,0" VerticalAlignment="Top" Width="232" Grid.Column="1">
+        <ListBox x:Name="ListElements" HorizontalAlignment="Left" Height="536" Margin="10,55,0,0" VerticalAlignment="Top" Width="232" Grid.Column="1">
 
 
         </ListBox>
         <TabControl x:Name="mainTab" TabStripPlacement="Top" Grid.Column="1" Margin="254,10,-504,10">
-            
+
         </TabControl>
+        <TextBox x:Name ="search" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="10,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232"/>
     </Grid>
 </Window>
 
