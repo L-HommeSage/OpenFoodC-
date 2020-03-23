@@ -39,7 +39,8 @@ namespace OpenFood_C_Sharp.View
             passengers.Content += ' ' + starship.passengers;
             created.Content += ' ' + ConvertToDateTime(starship.created);
             edited.Content += ' ' + ConvertToDateTime(starship.edited);
-
+            listFilms.MouseDoubleClick += callFilm;
+            listCharacters.MouseDoubleClick += callPeople;
             listFilms.Items.Clear();
             listCharacters.Items.Clear();
             foreach (String f in starship.films)
@@ -66,6 +67,15 @@ namespace OpenFood_C_Sharp.View
             {
                 return (value);
             }
+        }
+        private void callFilm(object sender, MouseEventArgs e)
+        {
+            this.Content = FilmViewModel.CallFilm(sender, e, listFilms);
+
+        }
+        private void callPeople(object sender, MouseEventArgs e)
+        {
+            this.Content = PeopleViewModel.CallPeople(sender, e, listCharacters);
         }
     }
 }

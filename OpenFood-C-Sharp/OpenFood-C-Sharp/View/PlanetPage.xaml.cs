@@ -47,6 +47,8 @@ namespace OpenFood_C_Sharp.View
             {
                 listFilms.Items.Add(FilmViewModel.GetFilm(f));
             }
+            listFilms.MouseDoubleClick += callFilm;
+            listResidents.MouseDoubleClick += callPeople;
         }
 
         private static string ConvertToDateTime(string value)
@@ -64,6 +66,15 @@ namespace OpenFood_C_Sharp.View
             {
                 return (value);
             }
+        }
+        private void callFilm(object sender, MouseEventArgs e)
+        {
+            this.Content = FilmViewModel.CallFilm(sender, e, listFilms);
+
+        }
+        private void callPeople(object sender, MouseEventArgs e)
+        {
+            this.Content = PeopleViewModel.CallPeople(sender, e, listResidents);
         }
     }
 }

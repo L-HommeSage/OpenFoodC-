@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 using System.Net;
 using System.IO;
 using OpenFood_C_Sharp.Modele;
+using OpenFood_C_Sharp.View;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace OpenFood_C_Sharp.ViewModel
 {
@@ -59,6 +62,16 @@ namespace OpenFood_C_Sharp.ViewModel
             } while (results.Count() != filmCount);
 
             return JsonConvert.DeserializeObject<List<Film>>(results.ToString());
+
+        }
+        public static Frame CallFilm(object sender, MouseEventArgs e, ListBox l)
+        {
+            Film f = (Film)l.SelectedItem;
+            FilmPage filmPage = new FilmPage(f.url);
+            TabItem tabItem = new TabItem();
+            Frame tabFrame = new Frame();
+            tabFrame.Content = filmPage;
+            return tabFrame;
 
         }
     }

@@ -37,7 +37,8 @@ namespace OpenFood_C_Sharp.View
             skin.Content += ' ' + species.skin_colors;
             created.Content += ' ' + ConvertToDateTime(species.created);
             edited.Content += ' ' + ConvertToDateTime(species.edited);
-
+            listFilms.MouseDoubleClick += callFilm;
+            listPeople.MouseDoubleClick += callPeople;
             listPeople.Items.Clear();
             listFilms.Items.Clear();
             foreach (String charac in species.people)
@@ -73,6 +74,15 @@ namespace OpenFood_C_Sharp.View
         {
             Planet planet = PlanetViewModel.GetPlanet(value);
             return planet.name;
+        }
+        private void callPeople(object sender, MouseEventArgs e)
+        {
+            this.Content = PeopleViewModel.CallPeople(sender, e, listPeople);
+        }
+        private void callFilm(object sender, MouseEventArgs e)
+        {
+            this.Content = FilmViewModel.CallFilm(sender, e, listFilms);
+
         }
     }
 }

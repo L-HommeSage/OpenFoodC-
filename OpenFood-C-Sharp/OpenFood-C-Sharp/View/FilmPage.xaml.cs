@@ -35,24 +35,12 @@ namespace OpenFood_C_Sharp.View
             foreach (String charac in film.characters)
             {
                 ListCharacters.Items.Add(PeopleViewModel.GetPeople(charac));
+                
             }
         }
         private void CallPeople(object sender, MouseEventArgs e)
         {
-            People p = (People)ListCharacters.SelectedItem;
-            PeoplePage peoplePage = new PeoplePage(p.url,filmUrl);
-            TabItem tabItem = new TabItem();
-            Frame tabFrame = new Frame();
-            tabFrame.Content = peoplePage;
-            this.Content = tabFrame;
-/*
-            tabItem.Header = p.ToString();
-
-            tabItem.Content = tabFrame;
-            PeopleTab.Items.Add(tabItem);
-            PeopleTab.SelectedItem = tabItem;
-            PeopleTab.Visibility = Visibility.Visible;
-            */
+           this.Content = PeopleViewModel.CallPeople(sender, e, ListCharacters);
         }
     }
 }

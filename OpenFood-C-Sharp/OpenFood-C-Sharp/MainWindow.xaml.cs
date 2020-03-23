@@ -67,7 +67,7 @@ namespace OpenFood_C_Sharp
             {
                 case "OpenFood_C_Sharp.Modele.People":
                     People p = (People)ListElements.SelectedItem;
-                    PeoplePage peoplePage = new PeoplePage(p.url);
+                    PeoplePage peoplePage = new PeoplePage(p.url,"");
                     Frame peoplePageFrame = new Frame();
                     peoplePageFrame.Content = peoplePage;
                     tabItem = new TabItem();
@@ -85,6 +85,54 @@ namespace OpenFood_C_Sharp
                     tabItem = new TabItem();
                     tabItem.Header = f.ToString();
                     tabItem.Content = filmPageFrame;
+                    mainTab.Items.Add(tabItem);
+                    mainTab.SelectedItem = tabItem;
+                    mainTab.Visibility = Visibility.Visible;
+                    break;
+                case "OpenFood_C_Sharp.Modele.Starship":
+                    Starship star = (Starship)ListElements.SelectedItem;
+                    StarshipPage starshipPage = new StarshipPage(star.url);
+                    Frame starsShipFrame = new Frame();
+                    starsShipFrame.Content = starshipPage;
+                    tabItem = new TabItem();
+                    tabItem.Header = star.ToString();
+                    tabItem.Content = starsShipFrame;
+                    mainTab.Items.Add(tabItem);
+                    mainTab.SelectedItem = tabItem;
+                    mainTab.Visibility = Visibility.Visible;
+                    break;
+                case "OpenFood_C_Sharp.Modele.Vehicule":
+                    Vehicle v = (Vehicle)ListElements.SelectedItem;
+                    VehiclePage vehiclePage = new VehiclePage(v.url);
+                    Frame vehiculeFrame = new Frame();
+                    vehiculeFrame.Content = vehiclePage;
+                    tabItem = new TabItem();
+                    tabItem.Header = v.ToString();
+                    tabItem.Content = vehiculeFrame;
+                    mainTab.Items.Add(tabItem);
+                    mainTab.SelectedItem = tabItem;
+                    mainTab.Visibility = Visibility.Visible;
+                    break;
+                case "OpenFood_C_Sharp.Modele.Species":
+                    Species s = (Species)ListElements.SelectedItem;
+                    SpeciesPage speciesPage = new SpeciesPage(s.url);
+                    Frame speciesFrame = new Frame();
+                    speciesFrame.Content = speciesPage;
+                    tabItem = new TabItem();
+                    tabItem.Header = s.ToString();
+                    tabItem.Content = speciesFrame;
+                    mainTab.Items.Add(tabItem);
+                    mainTab.SelectedItem = tabItem;
+                    mainTab.Visibility = Visibility.Visible;
+                    break;
+                case "OpenFood_C_Sharp.Modele.Planet":
+                    Planet pla = (Planet)ListElements.SelectedItem;
+                    PlanetPage planetPage = new PlanetPage(pla.url);
+                    Frame planetFrame = new Frame();
+                    planetFrame.Content = planetFrame;
+                    tabItem = new TabItem();
+                    tabItem.Header = pla.ToString();
+                    tabItem.Content = planetFrame;
                     mainTab.Items.Add(tabItem);
                     mainTab.SelectedItem = tabItem;
                     mainTab.Visibility = Visibility.Visible;
