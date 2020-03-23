@@ -10,6 +10,9 @@ using System.IO;
 using OpenFood_C_Sharp.Modele;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Windows.Input;
+using System.Windows.Controls;
+using OpenFood_C_Sharp.View;
 
 namespace OpenFood_C_Sharp.ViewModel
 {
@@ -61,6 +64,15 @@ namespace OpenFood_C_Sharp.ViewModel
 
             return JsonConvert.DeserializeObject<List<Starship>>(results.ToString());
 
+        }
+        public static Frame CallStarship(object sender, MouseEventArgs e, ListBox l)
+        {
+            Starship s = (Starship)l.SelectedItem;
+            StarshipPage starshipPage = new StarshipPage(s.url);
+            TabItem tabItem = new TabItem();
+            Frame tabFrame = new Frame();
+            tabFrame.Content = starshipPage;
+            return tabFrame;
         }
     }
 }

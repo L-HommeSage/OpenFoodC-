@@ -10,6 +10,8 @@ using System.IO;
 using OpenFood_C_Sharp.Modele;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace OpenFood_C_Sharp.ViewModel
 {
@@ -62,6 +64,16 @@ namespace OpenFood_C_Sharp.ViewModel
                 return JsonConvert.DeserializeObject<List<People>>(results.ToString());
 
         }
-        
+        public static Frame CallPeople(object sender, MouseEventArgs e, ListBox l)
+        {
+            People p = (People)l.SelectedItem;
+            PeoplePage peoplePage = new PeoplePage(p.url, "");
+            TabItem tabItem = new TabItem();
+            Frame tabFrame = new Frame();
+            tabFrame.Content = peoplePage;
+            return tabFrame;
+          
+        }
+
     }
 }

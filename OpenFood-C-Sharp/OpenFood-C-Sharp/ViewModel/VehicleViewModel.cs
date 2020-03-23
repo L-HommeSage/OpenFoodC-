@@ -10,6 +10,9 @@ using System.IO;
 using OpenFood_C_Sharp.Modele;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Windows.Controls;
+using System.Windows.Input;
+using OpenFood_C_Sharp.View;
 
 namespace OpenFood_C_Sharp.ViewModel
 {
@@ -61,6 +64,15 @@ namespace OpenFood_C_Sharp.ViewModel
 
             return JsonConvert.DeserializeObject<List<Vehicle>>(results.ToString());
 
+        }
+        public static Frame CallVehicule(object sender, MouseEventArgs e, ListBox l)
+        {
+            Vehicle v = (Vehicle)l.SelectedItem;
+            VehiclePage vehiclePage = new VehiclePage(v.url);
+            TabItem tabItem = new TabItem();
+            Frame tabFrame = new Frame();
+            tabFrame.Content = vehiclePage;
+            return tabFrame;
         }
     }
 }

@@ -10,6 +10,9 @@ using System.IO;
 using OpenFood_C_Sharp.Modele;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Windows.Input;
+using System.Windows.Controls;
+using OpenFood_C_Sharp.View;
 
 namespace OpenFood_C_Sharp.ViewModel
 {
@@ -60,6 +63,16 @@ namespace OpenFood_C_Sharp.ViewModel
             } while (results.Count() != planetsCount);
 
             return JsonConvert.DeserializeObject<List<Planet>>(results.ToString());
+
+        }
+        public static Frame CallPlanet(object sender, MouseEventArgs e, ListBox l)
+        {
+            Planet p = (Planet)l.SelectedItem;
+            PlanetPage planetPage = new PlanetPage(p.url);
+            TabItem tabItem = new TabItem();
+            Frame tabFrame = new Frame();
+            tabFrame.Content = planetPage;
+            return tabFrame;
 
         }
     }
