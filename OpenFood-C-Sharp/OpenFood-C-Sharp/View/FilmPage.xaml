@@ -10,17 +10,22 @@
       Title="FilmPage">
 
     <Grid HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="500">
-            <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="267*"/>
-            <ColumnDefinition Width="233*"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="9*"/>
         </Grid.ColumnDefinitions>
-        
-            <Label x:Name="title" Grid.ColumnSpan="2">Title :</Label>
+        <Button x:Name="backButton" Content="Back" Height="20" Margin="10,300,140,0" VerticalAlignment="Top" RenderTransformOrigin="2,1"/>
 
-        <Label Margin="0,46,267,376" Grid.ColumnSpan="2" >Characters :</Label>
-        <ListBox x:Name="ListCharacters" Margin="80,46,53,326" Grid.ColumnSpan="1"/>
-        <ListBox x:Name="ListSpaceShip" Margin="80,146,53,226" Grid.ColumnSpan="1"/>
-        <Label x:Name="spaceShip" Margin="0,146,192,-146">SpaceShip :</Label>
+        <Label x:Name="title" Margin="0,0,220,290">Title :</Label>
+
+        <Label Margin="0,46,34,246" >Characters :</Label>
+        <ListBox x:Name="ListCharacters" Margin="80,46,53,196" Grid.ColumnSpan="1"/>
+        <ListBox x:Name="ListSpaceShip" Margin="80,146,53,96" Grid.ColumnSpan="1"/>
+        <Label x:Name="spaceShip" Margin="0,146,150,80">SpaceShip :</Label>
 
     </Grid>
 </Page>

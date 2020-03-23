@@ -22,14 +22,19 @@ namespace OpenFood_C_Sharp
     /// </summary>
     public partial class PeoplePage : Page
     {
-        public PeoplePage(String url)
+        public PeoplePage(String url,String backUrl)
         {
             InitializeComponent();
             People people = PeopleViewModel.GetPeople(url);
             name.Content += people.name;
             mass.Content += people.mass;
             height.Content += people.height;
+            backButton.Click += GoBack;
 
         }
-    }
+        private void GoBack(object sender, EventArgs e)
+        {
+
+        }
+        }
 }

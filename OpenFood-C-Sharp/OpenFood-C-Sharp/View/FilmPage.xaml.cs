@@ -23,8 +23,10 @@ namespace OpenFood_C_Sharp.View
     public partial class FilmPage : Page
     {
         Window1 window1 = new Window1();
+        String filmUrl;
         public FilmPage(String url)
         {
+            filmUrl = url;
             InitializeComponent();
             Film film = FilmViewModel.GetFilm(url);
             title.Content += film.title;
@@ -38,7 +40,7 @@ namespace OpenFood_C_Sharp.View
         private void CallPeople(object sender, MouseEventArgs e)
         {
             People p = (People)ListCharacters.SelectedItem;
-            PeoplePage peoplePage = new PeoplePage(p.url);
+            PeoplePage peoplePage = new PeoplePage(p.url,filmUrl);
             TabItem tabItem = new TabItem();
             Frame tabFrame = new Frame();
             tabFrame.Content = peoplePage;

@@ -31,6 +31,7 @@ namespace OpenFood_C_Sharp
     public partial class MainWindow : Window
     {
         Window1 Window = new Window1();
+        TabItem tabItem = new TabItem();
         public MainWindow()
         {
             
@@ -69,20 +70,24 @@ namespace OpenFood_C_Sharp
                     PeoplePage peoplePage = new PeoplePage(p.url);
                     Frame peoplePageFrame = new Frame();
                     peoplePageFrame.Content = peoplePage;
-                    TabItem tabItem = new TabItem();
+                    tabItem = new TabItem();
                     tabItem.Header = p.ToString();
                     tabItem.Content = peoplePageFrame;
                     mainTab.Items.Add(tabItem);
                     mainTab.SelectedItem = tabItem;
                     mainTab.Visibility = Visibility.Visible;
-                   
-         
                     break;
                 case "OpenFood_C_Sharp.Modele.Film":
                     Film f = (Film)ListElements.SelectedItem;
                     FilmPage filmPage = new FilmPage(f.url);
-                    Window.feelContent(filmPage);
-                    Window.Show();
+                    Frame filmPageFrame = new Frame();
+                    filmPageFrame.Content = filmPage;
+                    tabItem = new TabItem();
+                    tabItem.Header = f.ToString();
+                    tabItem.Content = filmPageFrame;
+                    mainTab.Items.Add(tabItem);
+                    mainTab.SelectedItem = tabItem;
+                    mainTab.Visibility = Visibility.Visible;
                     break;
 
 
