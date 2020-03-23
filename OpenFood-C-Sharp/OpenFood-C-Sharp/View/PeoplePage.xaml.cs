@@ -22,11 +22,12 @@ namespace OpenFood_C_Sharp
     /// </summary>
     public partial class PeoplePage : Page
     {
-        public PeoplePage(String url)
+        public PeoplePage(String url,String backUrl)
         {
             InitializeComponent();
             People people = PeopleViewModel.GetPeople(url);
             name.Content += people.name;
+
             mass.Content += ' '+people.mass;
             height.Content += ' ' + people.height;
             birth.Content += ' ' + people.birth_year;
@@ -77,5 +78,9 @@ namespace OpenFood_C_Sharp
             Planet planet = PlanetViewModel.GetPlanet(value);
             return planet.name;
         }
-    }
+        private void GoBack(object sender, EventArgs e)
+        {
+
+        }
+        }
 }
