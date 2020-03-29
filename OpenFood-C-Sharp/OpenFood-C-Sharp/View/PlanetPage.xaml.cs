@@ -22,10 +22,21 @@ namespace OpenFood_C_Sharp.View
     /// </summary>
     public partial class PlanetPage : Page
     {
-        public PlanetPage(String url)
+        Planet planet;
+        List<String> backUrl;
+        public PlanetPage(String url, List<String> backUrl)
         {
             InitializeComponent();
-            Planet planet = PlanetViewModel.GetPlanet(url);
+            this.backUrl = backUrl;
+            if (this.backUrl.Last() == "")
+            {
+                backButton.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                backButton.Visibility = Visibility.Visible;
+            }
+            planet = PlanetViewModel.GetPlanet(url);
             name.Content += ' ' + planet.name;
             diameter.Content += ' ' + planet.diameter;
             orbital.Content += ' ' + planet.orbital_period;
@@ -36,7 +47,7 @@ namespace OpenFood_C_Sharp.View
             population.Content += ' ' + planet.population;
             created.Content += ' ' + ConvertToDateTime(planet.created);
             edited.Content += ' ' + ConvertToDateTime(planet.edited);
-
+            backButton.Click += GoBack;
             listResidents.Items.Clear();
             listFilms.Items.Clear();
             foreach (String charac in planet.residents)
@@ -70,12 +81,19 @@ namespace OpenFood_C_Sharp.View
         }
         private void callFilm(object sender, MouseEventArgs e)
         {
-            this.Content = FilmViewModel.CallFilm(sender, e, listFilms);
+            backUrl.Add(planet.url);
+            this.Content = FilmViewModel.CallFilm(sender, e, listFilms,backUrl);
 
         }
         private void callPeople(object sender, MouseEventArgs e)
         {
-            this.Content = PeopleViewModel.CallPeople(sender, e, listResidents);
+            backUrl.Add(planet.url);
+            this.Content = PeopleViewModel.CallPeople(sender, e, listResidents, backUrl);
+        }
+        private void GoBack(object sender, EventArgs e)
+        {
+            this.Content = Helpers.Helper.GoBack(backUrl);
+
         }
     }
 }

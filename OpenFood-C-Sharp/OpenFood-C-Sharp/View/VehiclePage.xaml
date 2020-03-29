@@ -54,6 +54,7 @@
         <ListBox x:Name="listFilms" HorizontalAlignment="Left" Height="78" Margin="279,129,0,0" VerticalAlignment="Top" Width="193"/>
 
 
+        <Button x:Name="backButton" Content="Back" Height="20" Margin="10,300,140,0" VerticalAlignment="Top" RenderTransformOrigin="2,1"/>
 
 
     </Grid>

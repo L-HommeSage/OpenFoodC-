@@ -24,11 +24,22 @@ namespace OpenFood_C_Sharp.View
     {
         private const string V = "....";
         String filmUrl;
-        public FilmPage(String url)
+        List<String> backUrl;
+        Film film;
+        public FilmPage(String url, List<String> backUrl)
         {
-            filmUrl = url;
             InitializeComponent();
-            Film film = FilmViewModel.GetFilm(url);
+            filmUrl = url;
+            this.backUrl = backUrl;
+            backButton.Click += GoBack;
+            if(this.backUrl.Last() ==""){
+                backButton.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                backButton.Visibility = Visibility.Visible;
+            }
+            film = FilmViewModel.GetFilm(url);
             title.Content += film.title;
             open.Content += film.opening_crawl + V;
             director.Content += ' ' + film.director;
@@ -67,7 +78,13 @@ namespace OpenFood_C_Sharp.View
         }
         private void CallPeople(object sender, MouseEventArgs e)
         {
-           this.Content = PeopleViewModel.CallPeople(sender, e, ListCharacters);
+            backUrl.Add(film.url);
+           this.Content = PeopleViewModel.CallPeople(sender, e, ListCharacters,backUrl);
+        }
+        private void GoBack(object sender, EventArgs e)
+        {
+            this.Content = Helpers.Helper.GoBack(backUrl);
+
         }
         private void callStarship(object sender, MouseEventArgs e)
         {

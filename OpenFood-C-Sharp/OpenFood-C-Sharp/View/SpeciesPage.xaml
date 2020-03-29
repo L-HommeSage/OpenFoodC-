@@ -47,9 +47,11 @@
 
         <Label Content="People:" HorizontalAlignment="Left" Margin="227,207,0,0" VerticalAlignment="Top"/>
         <Label Content="Films:" HorizontalAlignment="Left" Margin="227,103,0,0" VerticalAlignment="Top"/>
+
         <ListBox x:Name="listPeople" HorizontalAlignment="Left" Height="78" Margin="227,238,0,0" VerticalAlignment="Top" Width="182"/>
         <ListBox x:Name="listFilms" HorizontalAlignment="Left" Height="78" Margin="227,129,0,0" VerticalAlignment="Top" Width="182"/>
         
+
 
 
     </Grid>

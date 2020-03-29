@@ -52,13 +52,15 @@ namespace OpenFood_C_Sharp
         }
         private void CallPage(object sender, MouseEventArgs e)
         {
+            List<String> backUrl = new List<String>();
+            backUrl.Add("");
             switch (ListElements.SelectedItem.GetType().ToString())
             {
                 case "OpenFood_C_Sharp.Modele.People":
                     b = new Button();
                     b.Content = " X ";
                     People p = (People)ListElements.SelectedItem;
-                    PeoplePage peoplePage = new PeoplePage(p.url,"");
+                    PeoplePage peoplePage = new PeoplePage(p.url,backUrl);
                     Frame peoplePageFrame = new Frame();
                     peoplePageFrame.Content = peoplePage;
                     tabItem = new TabItem();
@@ -80,7 +82,7 @@ namespace OpenFood_C_Sharp
                     b = new Button();
                     b.Content = " X ";
                     Film f = (Film)ListElements.SelectedItem;
-                    FilmPage filmPage = new FilmPage(f.url);
+                    FilmPage filmPage = new FilmPage(f.url,backUrl);
                     Frame filmPageFrame = new Frame();
                     filmPageFrame.Content = filmPage;
                     tabItem = new TabItem();
@@ -102,7 +104,7 @@ namespace OpenFood_C_Sharp
                     b = new Button();
                     b.Content = " X ";
                     Starship star = (Starship)ListElements.SelectedItem;
-                    StarshipPage starshipPage = new StarshipPage(star.url);
+                    StarshipPage starshipPage = new StarshipPage(star.url,backUrl);
                     Frame starsShipFrame = new Frame();
                     starsShipFrame.Content = starshipPage;
                     tabItem = new TabItem();
@@ -125,7 +127,7 @@ namespace OpenFood_C_Sharp
                     b = new Button();
                     b.Content = " X ";
                     Vehicle v = (Vehicle)ListElements.SelectedItem;
-                    VehiclePage vehiclePage = new VehiclePage(v.url);
+                    VehiclePage vehiclePage = new VehiclePage(v.url,backUrl);
                     Frame vehiculeFrame = new Frame();
                     vehiculeFrame.Content = vehiclePage;
                     tabItem = new TabItem(); 
@@ -147,7 +149,7 @@ namespace OpenFood_C_Sharp
                     b = new Button();
                     b.Content = " X ";
                     Species s = (Species)ListElements.SelectedItem;
-                    SpeciesPage speciesPage = new SpeciesPage(s.url);
+                    SpeciesPage speciesPage = new SpeciesPage(s.url,backUrl);
                     Frame speciesFrame = new Frame();
                     speciesFrame.Content = speciesPage;
                     tabItem = new TabItem();
@@ -169,7 +171,7 @@ namespace OpenFood_C_Sharp
                     b = new Button();
                     b.Content = " X ";
                     Planet pla = (Planet)ListElements.SelectedItem;
-                    PlanetPage planetPage = new PlanetPage(pla.url);
+                    PlanetPage planetPage = new PlanetPage(pla.url,backUrl);
                     Frame planetFrame = new Frame();
                     planetFrame.Content = planetPage;
                     tabItem = new TabItem();
