@@ -24,15 +24,15 @@ namespace OpenFood_C_Sharp.View
     {
         Window1 window1 = new Window1();
         String filmUrl;
-        String backUrl;
+        List<String> backUrl;
         Film film;
-        public FilmPage(String url, String backUrl)
+        public FilmPage(String url, List<String> backUrl)
         {
             InitializeComponent();
             filmUrl = url;
             this.backUrl = backUrl;
             backButton.Click += GoBack;
-            if(this.backUrl ==""){
+            if(this.backUrl.Last() ==""){
                 backButton.Visibility = Visibility.Hidden;
             }
             else
@@ -51,7 +51,8 @@ namespace OpenFood_C_Sharp.View
         }
         private void CallPeople(object sender, MouseEventArgs e)
         {
-           this.Content = PeopleViewModel.CallPeople(sender, e, ListCharacters,film.url);
+            backUrl.Add(film.url);
+           this.Content = PeopleViewModel.CallPeople(sender, e, ListCharacters,backUrl);
         }
         private void GoBack(object sender, EventArgs e)
         {

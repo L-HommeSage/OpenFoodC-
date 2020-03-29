@@ -64,7 +64,7 @@ namespace OpenFood_C_Sharp.ViewModel
                 return JsonConvert.DeserializeObject<List<People>>(results.ToString());
 
         }
-        public static Frame CallPeople(object sender, MouseEventArgs e, ListBox l, String lastUrl)
+        public static Frame CallPeople(object sender, MouseEventArgs e, ListBox l, List<String> lastUrl)
         {
             People p = (People)l.SelectedItem;
             PeoplePage peoplePage = new PeoplePage(p.url, lastUrl);

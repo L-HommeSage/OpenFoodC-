@@ -23,13 +23,13 @@ namespace OpenFood_C_Sharp.View
     public partial class SpeciesPage : Page
     {
         Species species;
-        String backUrl;
-        public SpeciesPage(String url, String backUrl)
+        List<String> backUrl;
+        public SpeciesPage(String url, List<String> backUrl)
         {
             InitializeComponent();
             species = SpeciesViewModel.GetSpecies(url);
             this.backUrl = backUrl;
-            if (this.backUrl == "")
+            if (this.backUrl.Last() == "")
             {
                 backButton.Visibility = Visibility.Hidden;
             }
@@ -88,11 +88,13 @@ namespace OpenFood_C_Sharp.View
         }
         private void callPeople(object sender, MouseEventArgs e)
         {
-            this.Content = PeopleViewModel.CallPeople(sender, e, listPeople,species.url);
+            backUrl.Add(species.url);
+            this.Content = PeopleViewModel.CallPeople(sender, e, listPeople,backUrl);
         }
         private void callFilm(object sender, MouseEventArgs e)
         {
-            this.Content = FilmViewModel.CallFilm(sender, e, listFilms,species.url) ;
+            backUrl.Add(species.url);
+            this.Content = FilmViewModel.CallFilm(sender, e, listFilms,backUrl) ;
 
         }
         private void GoBack(object sender, EventArgs e)

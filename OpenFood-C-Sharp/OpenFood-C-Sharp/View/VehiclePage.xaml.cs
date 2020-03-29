@@ -23,13 +23,13 @@ namespace OpenFood_C_Sharp.View
     public partial class VehiclePage : Page
     {
         Vehicle vehicle;
-        String backUrl;
-        public VehiclePage(String url,String backUrl)
+        List<String> backUrl;
+        public VehiclePage(String url,List<String> backUrl)
         {
             InitializeComponent();
             vehicle = VehicleViewModel.GetVehicle(url);
             this.backUrl = backUrl;
-            if (this.backUrl == "")
+            if (this.backUrl.Last() == "")
             {
                 backButton.Visibility = Visibility.Hidden;
             }
@@ -82,12 +82,14 @@ namespace OpenFood_C_Sharp.View
         }
         private void callFilm(object sender, MouseEventArgs e)
         {
-            this.Content = FilmViewModel.CallFilm(sender, e, listFilms,vehicle.url);
+            backUrl.Add(vehicle.url);
+            this.Content = FilmViewModel.CallFilm(sender, e, listFilms,backUrl);
 
         }
         private void callPeople(object sender, MouseEventArgs e)
         {
-            this.Content = PeopleViewModel.CallPeople(sender, e, listCharacters,vehicle.url);
+            backUrl.Add(vehicle.url);
+            this.Content = PeopleViewModel.CallPeople(sender, e, listCharacters,backUrl);
         }
         private void GoBack(object sender, EventArgs e)
         {

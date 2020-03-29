@@ -23,12 +23,12 @@ namespace OpenFood_C_Sharp.View
     public partial class PlanetPage : Page
     {
         Planet planet;
-        String backUrl;
-        public PlanetPage(String url, String backUrl)
+        List<String> backUrl;
+        public PlanetPage(String url, List<String> backUrl)
         {
             InitializeComponent();
             this.backUrl = backUrl;
-            if (this.backUrl == "")
+            if (this.backUrl.Last() == "")
             {
                 backButton.Visibility = Visibility.Hidden;
             }
@@ -81,13 +81,14 @@ namespace OpenFood_C_Sharp.View
         }
         private void callFilm(object sender, MouseEventArgs e)
         {
-            this.Content = FilmViewModel.CallFilm(sender, e, listFilms,planet.url);
+            backUrl.Add(planet.url);
+            this.Content = FilmViewModel.CallFilm(sender, e, listFilms,backUrl);
 
         }
         private void callPeople(object sender, MouseEventArgs e)
         {
-           
-            this.Content = PeopleViewModel.CallPeople(sender, e, listResidents, planet.url);
+            backUrl.Add(planet.url);
+            this.Content = PeopleViewModel.CallPeople(sender, e, listResidents, backUrl);
         }
         private void GoBack(object sender, EventArgs e)
         {

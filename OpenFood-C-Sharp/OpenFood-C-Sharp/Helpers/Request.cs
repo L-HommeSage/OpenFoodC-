@@ -17,35 +17,37 @@ namespace OpenFood_C_Sharp.Helpers
 {
     class Helper
     {
-        public static Frame GoBack(String backUrl)
+        public static Frame GoBack(List<String> backUrl)
         {
             Frame frame = new Frame();
-            switch (parseUrl(backUrl))
+            string lastUrl = backUrl.Last();
+            backUrl.Remove(lastUrl);
+            switch (parseUrl(lastUrl))
             {
                 case "planets":
-                    PlanetPage planetPage = new PlanetPage(backUrl,"");
+                    PlanetPage planetPage = new PlanetPage(lastUrl, backUrl);
                     Frame planetFrame = new Frame();
                     frame.Content = planetPage;
                     break;
                 case "species":
-                    SpeciesPage speciesPage = new SpeciesPage(backUrl,"");
+                    SpeciesPage speciesPage = new SpeciesPage(lastUrl, backUrl);
                     Frame speciesFrame = new Frame();
                     frame.Content = speciesPage;
                     break;
                 case "vehicles":
-                    VehiclePage vehiclePage = new VehiclePage(backUrl,"");
+                    VehiclePage vehiclePage = new VehiclePage(lastUrl, backUrl);
                     frame.Content = vehiclePage;
                     break;
                 case "starships":
-                    StarshipPage starshipPage = new StarshipPage(backUrl,"");
+                    StarshipPage starshipPage = new StarshipPage(lastUrl, backUrl);
                     frame.Content = starshipPage;
                     break;
                 case "people":
-                    PeoplePage peoplePage = new PeoplePage(backUrl, "");
+                    PeoplePage peoplePage = new PeoplePage(lastUrl, backUrl);
                     frame.Content = peoplePage;
                     break;
                 case "films":
-                    FilmPage filmPage = new FilmPage(backUrl, "");
+                    FilmPage filmPage = new FilmPage(lastUrl, backUrl);
                     frame.Content = filmPage;
                     break;
             }

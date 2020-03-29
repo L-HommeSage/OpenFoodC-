@@ -65,7 +65,7 @@ namespace OpenFood_C_Sharp.ViewModel
             return JsonConvert.DeserializeObject<List<Starship>>(results.ToString());
 
         }
-        public static Frame CallStarship(object sender, MouseEventArgs e, ListBox l,String lastUrl)
+        public static Frame CallStarship(object sender, MouseEventArgs e, ListBox l,List<String> lastUrl)
         {
             Starship s = (Starship)l.SelectedItem;
             StarshipPage starshipPage = new StarshipPage(s.url,lastUrl);

@@ -23,12 +23,12 @@ namespace OpenFood_C_Sharp.View
     public partial class StarshipPage : Page
     {
         Starship starship;
-        String backUrl;
-        public StarshipPage(String url,String backUrl)
+        List<String> backUrl;
+        public StarshipPage(String url,List<String> backUrl)
         {
             InitializeComponent();
             this.backUrl = backUrl;
-            if (this.backUrl == "")
+            if (this.backUrl.Last() == "")
             {
                 backButton.Visibility = Visibility.Hidden;
             }
@@ -85,12 +85,14 @@ namespace OpenFood_C_Sharp.View
         }
         private void callFilm(object sender, MouseEventArgs e)
         {
-            this.Content = FilmViewModel.CallFilm(sender, e, listFilms,starship.url);
+            backUrl.Add(starship.url);
+            this.Content = FilmViewModel.CallFilm(sender, e, listFilms,backUrl);
 
         }
         private void callPeople(object sender, MouseEventArgs e)
         {
-            this.Content = PeopleViewModel.CallPeople(sender, e, listCharacters, starship.url) ;
+            backUrl.Add(starship.url);
+            this.Content = PeopleViewModel.CallPeople(sender, e, listCharacters, backUrl) ;
         }
         private void GoBack(object sender, EventArgs e)
         {
