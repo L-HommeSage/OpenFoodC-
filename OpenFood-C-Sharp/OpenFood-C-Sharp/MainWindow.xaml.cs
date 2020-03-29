@@ -56,17 +56,17 @@ namespace OpenFood_C_Sharp
             {
                 case "OpenFood_C_Sharp.Modele.People":
                     b = new Button();
-                    b.Content = "X ";
+                    b.Content = " X ";
                     People p = (People)ListElements.SelectedItem;
                     PeoplePage peoplePage = new PeoplePage(p.url,"");
                     Frame peoplePageFrame = new Frame();
                     peoplePageFrame.Content = peoplePage;
                     tabItem = new TabItem();
                     stack = new StackPanel();
-                    stack.Children.Add(b);
                     l = new Label();
                     l.Content = p.ToString();
                     stack.Children.Add(l);
+                    stack.Children.Add(b);
                     stack.Orientation = Orientation.Horizontal;
                     tabItem.Header = stack;
                     tabItem.Content = peoplePageFrame;
@@ -78,17 +78,17 @@ namespace OpenFood_C_Sharp
                     break;
                 case "OpenFood_C_Sharp.Modele.Film":
                     b = new Button();
-                    b.Content = "X ";
+                    b.Content = " X ";
                     Film f = (Film)ListElements.SelectedItem;
                     FilmPage filmPage = new FilmPage(f.url);
                     Frame filmPageFrame = new Frame();
                     filmPageFrame.Content = filmPage;
                     tabItem = new TabItem();
                     stack = new StackPanel();
-                    stack.Children.Add(b);
                     l = new Label();
                     l.Content = f.ToString();
                     stack.Children.Add(l);
+                    stack.Children.Add(b);
                     stack.Orientation = Orientation.Horizontal;
                     tabItem.Header = stack;
                     tabItem.Content = filmPageFrame;
@@ -100,17 +100,18 @@ namespace OpenFood_C_Sharp
                     break;
                 case "OpenFood_C_Sharp.Modele.Starship":
                     b = new Button();
-                    b.Content = "X ";
+                    b.Content = " X ";
                     Starship star = (Starship)ListElements.SelectedItem;
                     StarshipPage starshipPage = new StarshipPage(star.url);
                     Frame starsShipFrame = new Frame();
                     starsShipFrame.Content = starshipPage;
                     tabItem = new TabItem();
                     stack = new StackPanel();
-                    stack.Children.Add(b);
+                    
                     l = new Label();
                     l.Content = star.ToString();
                     stack.Children.Add(l);
+                    stack.Children.Add(b);
                     stack.Orientation = Orientation.Horizontal;
                     tabItem.Header = stack;
                     tabItem.Content = starsShipFrame;
@@ -122,17 +123,17 @@ namespace OpenFood_C_Sharp
                     break;
                 case "OpenFood_C_Sharp.Modele.Vehicle":
                     b = new Button();
-                    b.Content = "X";
+                    b.Content = " X ";
                     Vehicle v = (Vehicle)ListElements.SelectedItem;
                     VehiclePage vehiclePage = new VehiclePage(v.url);
                     Frame vehiculeFrame = new Frame();
                     vehiculeFrame.Content = vehiclePage;
                     tabItem = new TabItem(); 
-                    stack = new StackPanel();
-                    stack.Children.Add(b);
+                    stack = new StackPanel();                   
                     l = new Label();
                     l.Content = v.ToString();
                     stack.Children.Add(l);
+                    stack.Children.Add(b);
                     stack.Orientation = Orientation.Horizontal;
                     tabItem.Header = stack;
                     tabItem.Content = vehiculeFrame;
@@ -144,17 +145,17 @@ namespace OpenFood_C_Sharp
                     break;
                 case "OpenFood_C_Sharp.Modele.Species":
                     b = new Button();
-                    b.Content = "X ";
+                    b.Content = " X ";
                     Species s = (Species)ListElements.SelectedItem;
                     SpeciesPage speciesPage = new SpeciesPage(s.url);
                     Frame speciesFrame = new Frame();
                     speciesFrame.Content = speciesPage;
                     tabItem = new TabItem();
-                    stack = new StackPanel();
-                    stack.Children.Add(b);
+                    stack = new StackPanel();                   
                     l = new Label();
                     l.Content = s.ToString();
                     stack.Children.Add(l);
+                    stack.Children.Add(b);
                     stack.Orientation = Orientation.Horizontal;
                     tabItem.Header = stack;
                     tabItem.Content = speciesFrame;
@@ -166,17 +167,17 @@ namespace OpenFood_C_Sharp
                     break;
                 case "OpenFood_C_Sharp.Modele.Planet":
                     b = new Button();
-                    b.Content = "X";
+                    b.Content = " X ";
                     Planet pla = (Planet)ListElements.SelectedItem;
                     PlanetPage planetPage = new PlanetPage(pla.url);
                     Frame planetFrame = new Frame();
                     planetFrame.Content = planetPage;
                     tabItem = new TabItem();
                     stack = new StackPanel();
-                    stack.Children.Add(b);
                     l = new Label();
                     l.Content = pla.ToString();
                     stack.Children.Add(l);
+                    stack.Children.Add(b);
                     stack.Orientation = Orientation.Horizontal;
                     tabItem.Header = stack;
                     tabItem.Content = planetFrame;
