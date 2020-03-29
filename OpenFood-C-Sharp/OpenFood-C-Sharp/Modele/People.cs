@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OpenFood_C_Sharp.Modele
 {
-    class People
+    public class People
     {
         public string birth_year { get; set; }
         public string eye_color { get; set; }

@@ -16,7 +16,7 @@ using System.Windows.Input;
 
 namespace OpenFood_C_Sharp.ViewModel
 {
-    class FilmViewModel
+    public class FilmViewModel
     {
         public static Film GetFilm(string url)
         {

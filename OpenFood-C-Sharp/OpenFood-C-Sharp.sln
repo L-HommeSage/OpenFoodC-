@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenFood-C-Sharp", "OpenFood-C-Sharp\OpenFood-C-Sharp.csproj", "{FEE26092-7B9C-4377-878B-C2170ADC265D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenFoo-C-Sharp-Test", "OpenFoo-C-Sharp-Test\OpenFoo-C-Sharp-Test.csproj", "{E6E47368-11BC-4B58-BF2A-8F085761C454}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenFoo-C-Sharp-Test", "OpenFoo-C-Sharp-Test\OpenFoo-C-Sharp-Test.csproj", "{E6E47368-11BC-4B58-BF2A-8F085761C454}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenFood-C-SharpTests1", "OpenFood-C-SharpTests1\OpenFood-C-SharpTests1.csproj", "{FE0D257A-8B76-4160-BAE8-AB644EA5B244}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E6E47368-11BC-4B58-BF2A-8F085761C454}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6E47368-11BC-4B58-BF2A-8F085761C454}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6E47368-11BC-4B58-BF2A-8F085761C454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE0D257A-8B76-4160-BAE8-AB644EA5B244}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE0D257A-8B76-4160-BAE8-AB644EA5B244}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE0D257A-8B76-4160-BAE8-AB644EA5B244}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE0D257A-8B76-4160-BAE8-AB644EA5B244}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,8 +6,29 @@
       xmlns:local="clr-namespace:OpenFood_C_Sharp.View"
       mc:Ignorable="d" 
       d:DesignHeight="400" d:DesignWidth="500"
-      Background="LightGray"
+      Background="#FF020202"
       Title="PlanetPage">
+    <Page.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="#FFFFD54E"/>
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#FFFFD54E"/>
+            <Setter Property="Background" Value="#FF020202"/>
+            <Setter Property="Foreground" Value="#FFFFD54E"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BorderBrush" Value="#FFFFD54E"/>
+            <Setter Property="Background" Value="#FF020202"/>
+            <Setter Property="FontFamily" Value="Segoe UI Black"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="#FFFFD54E"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+
+        </Style>
+    </Page.Resources>
 
     <Grid HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="500">
         <Label x:Name="name"  FontSize="40" FontWeight="Bold" Margin="10,10,10,328"></Label>

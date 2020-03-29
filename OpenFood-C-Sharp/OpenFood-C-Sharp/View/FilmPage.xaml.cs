@@ -22,7 +22,7 @@ namespace OpenFood_C_Sharp.View
     /// </summary>
     public partial class FilmPage : Page
     {
-        Window1 window1 = new Window1();
+        private const string V = "....";
         String filmUrl;
         List<String> backUrl;
         Film film;
@@ -41,12 +41,39 @@ namespace OpenFood_C_Sharp.View
             }
             film = FilmViewModel.GetFilm(url);
             title.Content += film.title;
+            open.Content += film.opening_crawl + V;
+            director.Content += ' ' + film.director;
+            producer.Content += ' ' + film.producer;
+            release.Content += ' ' + ConvertToDateTime(film.release_date);
+            created.Content += ' ' + ConvertToDateTime(film.created);
+            edited.Content += ' ' + ConvertToDateTime(film.edited);
             ListCharacters.MouseDoubleClick += CallPeople;
+            ListSpaceShip.MouseDoubleClick += callStarship;
+            ListVehicles.MouseDoubleClick += CallVehicule;
+            ListSpecies.MouseDoubleClick += CallSpecies;
             ListCharacters.Items.Clear();
+            ListSpaceShip.Items.Clear();
+            ListSpecies.Items.Clear();
+            ListVehicles.Items.Clear();
             foreach (String charac in film.characters)
             {
                 ListCharacters.Items.Add(PeopleViewModel.GetPeople(charac));
                 
+            }
+            foreach (String v in film.vehicles)
+            {
+                ListVehicles.Items.Add(VehicleViewModel.GetVehicle(v));
+
+            }
+            foreach (String s in film.starships)
+            {
+                ListSpaceShip.Items.Add(StarshipViewModel.GetStarship(s));
+
+            }
+            foreach (String spe in film.species)
+            {
+                ListSpecies.Items.Add(SpeciesViewModel.GetSpecies(spe));
+
             }
         }
         private void CallPeople(object sender, MouseEventArgs e)
@@ -59,5 +86,34 @@ namespace OpenFood_C_Sharp.View
             this.Content = Helpers.Helper.GoBack(backUrl);
 
         }
+        private void callStarship(object sender, MouseEventArgs e)
+        {
+            this.Content = StarshipViewModel.CallStarship(sender, e, ListSpaceShip);
+        }
+        private void CallVehicule(object sender, MouseEventArgs e)
+        {
+            this.Content = VehicleViewModel.CallVehicule(sender, e, ListVehicles);
+        }
+        private void CallSpecies(object sender, MouseEventArgs e)
+        {
+            this.Content = SpeciesViewModel.CallSpecies(sender, e, ListSpecies);
+        }
+        private static string ConvertToDateTime(string value)
+        {
+            DateTime convertedDate;
+            try
+            {
+                convertedDate = Convert.ToDateTime(value);
+                string input = value;
+                string sub = input.Substring(0, 10);
+
+                return (sub);
+            }
+            catch (FormatException)
+            {
+                return (value);
+            }
+        }
+
     }
 }
