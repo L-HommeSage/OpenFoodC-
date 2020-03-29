@@ -15,7 +15,7 @@ using System.Windows.Input;
 
 namespace OpenFood_C_Sharp.ViewModel
 {
-    class PeopleViewModel
+    public class PeopleViewModel
     {
         public static People GetPeople(string url)
         {

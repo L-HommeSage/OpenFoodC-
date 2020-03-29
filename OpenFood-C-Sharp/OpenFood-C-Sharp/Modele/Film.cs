@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OpenFood_C_Sharp.Modele
 {
-    class Film
+    public class Film
     {
         public List<string> characters { get; set; }
         public string created { get; set; }
