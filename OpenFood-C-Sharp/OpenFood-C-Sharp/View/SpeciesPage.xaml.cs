@@ -77,7 +77,7 @@ namespace OpenFood_C_Sharp.View
         }
         private void callPeople(object sender, MouseEventArgs e)
         {
-            this.Content = PeopleViewModel.CallPeople(sender, e, listPeople);
+            this.Content = PeopleViewModel.CallPeople(sender, e, listPeople,"");
         }
         private void callFilm(object sender, MouseEventArgs e)
         {

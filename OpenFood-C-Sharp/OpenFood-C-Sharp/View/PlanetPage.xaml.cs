@@ -22,10 +22,11 @@ namespace OpenFood_C_Sharp.View
     /// </summary>
     public partial class PlanetPage : Page
     {
+        Planet planet;
         public PlanetPage(String url)
         {
             InitializeComponent();
-            Planet planet = PlanetViewModel.GetPlanet(url);
+            planet = PlanetViewModel.GetPlanet(url);
             name.Content += ' ' + planet.name;
             diameter.Content += ' ' + planet.diameter;
             orbital.Content += ' ' + planet.orbital_period;
@@ -75,7 +76,8 @@ namespace OpenFood_C_Sharp.View
         }
         private void callPeople(object sender, MouseEventArgs e)
         {
-            this.Content = PeopleViewModel.CallPeople(sender, e, listResidents);
+           
+            this.Content = PeopleViewModel.CallPeople(sender, e, listResidents, planet.url);
         }
     }
 }

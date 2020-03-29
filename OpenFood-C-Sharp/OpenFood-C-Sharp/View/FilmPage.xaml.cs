@@ -40,7 +40,7 @@ namespace OpenFood_C_Sharp.View
         }
         private void CallPeople(object sender, MouseEventArgs e)
         {
-           this.Content = PeopleViewModel.CallPeople(sender, e, ListCharacters);
+           this.Content = PeopleViewModel.CallPeople(sender, e, ListCharacters,"");
         }
     }
 }

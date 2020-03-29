@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using OpenFood_C_Sharp.Modele;
 using OpenFood_C_Sharp.ViewModel;
+using OpenFood_C_Sharp.View;
 
 namespace OpenFood_C_Sharp
 {
@@ -22,12 +23,13 @@ namespace OpenFood_C_Sharp
     /// </summary>
     public partial class PeoplePage : Page
     {
+        String backUrl;
         public PeoplePage(String url,String backUrl)
         {
             InitializeComponent();
             People people = PeopleViewModel.GetPeople(url);
             name.Content += people.name;
-
+            this.backUrl = backUrl;
             mass.Content += ' '+people.mass;
             height.Content += ' ' + people.height;
             birth.Content += ' ' + people.birth_year;
@@ -38,6 +40,7 @@ namespace OpenFood_C_Sharp
             skin.Content += ' ' + people.skin_color;
             created.Content += ' ' + ConvertToDateTime(people.created);
             edited.Content += ' ' + ConvertToDateTime(people.edited);
+            backButton.Click += GoBack;
 
             listFilms.MouseDoubleClick += callFilm;
             listStarships.MouseDoubleClick += callStarship;
@@ -83,7 +86,16 @@ namespace OpenFood_C_Sharp
         }
         private void GoBack(object sender, EventArgs e)
         {
-
+           switch(parseUrl(backUrl))
+            {
+                case "planets":
+                    PlanetPage planetPage = new PlanetPage(backUrl);
+                    Frame planetFrame = new Frame();
+                    planetFrame.Content = planetPage;
+                    this.Content = planetFrame;
+                    break;
+            }
+           
         }
         private void callFilm(object sender, MouseEventArgs e)
         {
@@ -97,6 +109,14 @@ namespace OpenFood_C_Sharp
         private void CallVehicule(object sender, MouseEventArgs e)
         {
             this.Content = VehicleViewModel.CallVehicule(sender, e, listVehicles);
+        }
+        private String parseUrl(String url)
+        {
+            String baseUrl = "https://swapi.co/api/";
+            String type =  url.Replace(baseUrl, "");
+            type = type.Split('/')[0];
+            Console.WriteLine(type);
+            return type;
         }
     }
 }
