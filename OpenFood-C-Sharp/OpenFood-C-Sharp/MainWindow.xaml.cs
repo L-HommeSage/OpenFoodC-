@@ -122,7 +122,7 @@ namespace OpenFood_C_Sharp
                     mainTab.SelectedItem = tabItem;
                     mainTab.Visibility = Visibility.Visible;
                     break;
-                case "OpenFood_C_Sharp.Modele.Vehicule":
+                case "OpenFood_C_Sharp.Modele.Vehicle":
                     b = new Button();
                     b.Content = "X";
                     Vehicle v = (Vehicle)ListElements.SelectedItem;
