@@ -30,7 +30,6 @@ namespace OpenFood_C_Sharp
     /// </summary>
     public partial class MainWindow : Window
     {
-        Window1 Window = new Window1();
         TabItem tabItem = new TabItem();
         Button b = new Button();
         StackPanel stack = new StackPanel();

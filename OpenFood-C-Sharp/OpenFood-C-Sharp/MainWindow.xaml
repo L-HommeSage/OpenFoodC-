@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OpenFood_C_Sharp"
         mc:Ignorable="d"
-        Background="LightGray"
+        Background="#FF020202"
         Title="Star Wars Api" Height="632" Width="968.2">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BorderBrush" Value="#FFFFD54E"/>
+            <Setter Property="Background" Value="#FF020202"/>
+            <Setter Property="FontFamily" Value="Segoe UI Black"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Foreground" Value="#FFFFD54E"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+
+        </Style>
+    </Window.Resources>
+
     <Grid HorizontalAlignment="Left" Height="601" VerticalAlignment="Top" Width="448" Margin="0,0,-6.4,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15*"/>
@@ -18,13 +31,10 @@
         <Button x:Name="speciesButton" Content="Species" HorizontalAlignment="Left" Height="40" Margin="10,255,0,0" VerticalAlignment="Top" Width="169"/>
         <Button x:Name="vehiclesButton" Content="Vehicles" HorizontalAlignment="Left" Height="40" Margin="10,300,0,0" VerticalAlignment="Top" Width="169"/>
         <Button x:Name="starshipsButton" Content="Starships" HorizontalAlignment="Left" Height="40" Margin="10,345,0,0" VerticalAlignment="Top" Width="169"/>
-        <ListBox x:Name="ListElements" HorizontalAlignment="Left" Height="581" Margin="10.2,10,0,0" VerticalAlignment="Top" Width="232" Grid.Column="1">
+        <ListBox x:Name="ListElements" HorizontalAlignment="Left" Height="581" Margin="10.2,10,0,0" VerticalAlignment="Top" Width="232" Grid.Column="1" BorderThickness="2" BorderBrush="#FFFFD54E" Background="#FF020202" Foreground="#FFFFD54E"/>
+        <TabControl x:Name="mainTab" TabStripPlacement="Top" Grid.Column="1" Margin="254,10,-504,10"/>
 
 
-        </ListBox>
-        <TabControl x:Name="mainTab" TabStripPlacement="Top" Grid.Column="1" Margin="254,10,-504,10">
-            
-        </TabControl>
     </Grid>
 </Window>
 
