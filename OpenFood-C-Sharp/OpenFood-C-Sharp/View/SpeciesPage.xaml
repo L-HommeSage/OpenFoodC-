@@ -6,8 +6,29 @@
       xmlns:local="clr-namespace:OpenFood_C_Sharp.View"
       mc:Ignorable="d" 
       d:DesignHeight="400" d:DesignWidth="500"
-      Background="LightGray"
+      Background="#FF020202"
       Title="SpeciesPage">
+    <Page.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="#FFFFD54E"/>
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#FFFFD54E"/>
+            <Setter Property="Background" Value="#FF020202"/>
+            <Setter Property="Foreground" Value="#FFFFD54E"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BorderBrush" Value="#FFFFD54E"/>
+            <Setter Property="Background" Value="#FF020202"/>
+            <Setter Property="FontFamily" Value="Segoe UI Black"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="#FFFFD54E"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+
+        </Style>
+    </Page.Resources>
 
     <Grid HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="500">
         <Label x:Name="name"  FontSize="40" FontWeight="Bold" Margin="10,10,10,328"></Label>
@@ -21,13 +42,13 @@
         <Label x:Name="language" HorizontalAlignment="Left" Margin="10,259,0,0" VerticalAlignment="Top">Language:</Label>
         <Label x:Name="skin" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Content="Skin color:"/>
 
-        <Label x:Name="edited" HorizontalAlignment="Left" Margin="10,339,0,0" VerticalAlignment="Top">Edited:</Label>
-        <Label x:Name="created" HorizontalAlignment="Left" Margin="10,313,0,0" VerticalAlignment="Top">Created:</Label>
+        <Label x:Name="edited" HorizontalAlignment="Left" Margin="10,364,0,0" VerticalAlignment="Top">Edited:</Label>
+        <Label x:Name="created" HorizontalAlignment="Left" Margin="10,338,0,0" VerticalAlignment="Top">Created:</Label>
 
         <Label Content="People:" HorizontalAlignment="Left" Margin="227,207,0,0" VerticalAlignment="Top"/>
         <Label Content="Films:" HorizontalAlignment="Left" Margin="227,103,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="listPeople" HorizontalAlignment="Left" Height="78" Margin="227,238,0,0" VerticalAlignment="Top" Width="193"/>
-        <ListBox x:Name="listFilms" HorizontalAlignment="Left" Height="78" Margin="227,129,0,0" VerticalAlignment="Top" Width="193"/>
+        <ListBox x:Name="listPeople" HorizontalAlignment="Left" Height="78" Margin="227,238,0,0" VerticalAlignment="Top" Width="182"/>
+        <ListBox x:Name="listFilms" HorizontalAlignment="Left" Height="78" Margin="227,129,0,0" VerticalAlignment="Top" Width="182"/>
         
 
 
