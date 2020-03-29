@@ -21,7 +21,6 @@ using OpenFood_C_Sharp.Helpers;
 using OpenFood_C_Sharp.ViewModel;
 using OpenFood_C_Sharp.View;
 using System.Collections.ObjectModel;
-using System.Windows;
 
 namespace OpenFood_C_Sharp
 {
