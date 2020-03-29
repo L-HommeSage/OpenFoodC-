@@ -41,6 +41,7 @@ namespace OpenFood_C_Sharp.View
             listFilms.Items.Clear();
             foreach (String charac in planet.residents)
             {
+                Console.WriteLine(charac);
                 listResidents.Items.Add(PeopleViewModel.GetPeople(charac));
             }
             foreach (String f in planet.films)

@@ -32,6 +32,9 @@ namespace OpenFood_C_Sharp
     {
         Window1 Window = new Window1();
         TabItem tabItem = new TabItem();
+        Button b = new Button();
+        StackPanel stack = new StackPanel();
+        Label l = new Label();
         public MainWindow()
         {
             
@@ -47,93 +50,140 @@ namespace OpenFood_C_Sharp
             ListElements.MouseDoubleClick += CallPage;
 
 
+
         }
         private void CallPage(object sender, MouseEventArgs e)
         {
-            /* switch (ListElements.SelectedItem.GetType().ToString()) 
-             {
-                 case "OpenFood_C_Sharp.Modele.People":
-                  People p = (People)ListElements.SelectedItem;
-                     PeoplePage peoplePage = new PeoplePage(p.url);
-                     this.Content = peoplePage;
-                     break;
-                 case "OpenFood_C_Sharp.Modele.Film":
-                    Film f = (Film)ListElements.SelectedItem;
-                     break;
-
-
-             }*/
             switch (ListElements.SelectedItem.GetType().ToString())
             {
                 case "OpenFood_C_Sharp.Modele.People":
+                    b = new Button();
+                    b.Content = "X ";
                     People p = (People)ListElements.SelectedItem;
                     PeoplePage peoplePage = new PeoplePage(p.url,"");
                     Frame peoplePageFrame = new Frame();
                     peoplePageFrame.Content = peoplePage;
                     tabItem = new TabItem();
-                    tabItem.Header = p.ToString();
+                    stack = new StackPanel();
+                    stack.Children.Add(b);
+                    l = new Label();
+                    l.Content = p.ToString();
+                    stack.Children.Add(l);
+                    stack.Orientation = Orientation.Horizontal;
+                    tabItem.Header = stack;
                     tabItem.Content = peoplePageFrame;
                     mainTab.Items.Add(tabItem);
+                    b.Click += removePanel;
+                    b.Tag = tabItem;
                     mainTab.SelectedItem = tabItem;
                     mainTab.Visibility = Visibility.Visible;
                     break;
                 case "OpenFood_C_Sharp.Modele.Film":
+                    b = new Button();
+                    b.Content = "X ";
                     Film f = (Film)ListElements.SelectedItem;
                     FilmPage filmPage = new FilmPage(f.url);
                     Frame filmPageFrame = new Frame();
                     filmPageFrame.Content = filmPage;
                     tabItem = new TabItem();
-                    tabItem.Header = f.ToString();
+                    stack = new StackPanel();
+                    stack.Children.Add(b);
+                    l = new Label();
+                    l.Content = f.ToString();
+                    stack.Children.Add(l);
+                    stack.Orientation = Orientation.Horizontal;
+                    tabItem.Header = stack;
                     tabItem.Content = filmPageFrame;
                     mainTab.Items.Add(tabItem);
+                    b.Tag = tabItem;
+                    b.Click += removePanel;
                     mainTab.SelectedItem = tabItem;
                     mainTab.Visibility = Visibility.Visible;
                     break;
                 case "OpenFood_C_Sharp.Modele.Starship":
+                    b = new Button();
+                    b.Content = "X ";
                     Starship star = (Starship)ListElements.SelectedItem;
                     StarshipPage starshipPage = new StarshipPage(star.url);
                     Frame starsShipFrame = new Frame();
                     starsShipFrame.Content = starshipPage;
                     tabItem = new TabItem();
-                    tabItem.Header = star.ToString();
+                    stack = new StackPanel();
+                    stack.Children.Add(b);
+                    l = new Label();
+                    l.Content = star.ToString();
+                    stack.Children.Add(l);
+                    stack.Orientation = Orientation.Horizontal;
+                    tabItem.Header = stack;
                     tabItem.Content = starsShipFrame;
                     mainTab.Items.Add(tabItem);
+                    b.Tag = tabItem;
+                    b.Click += removePanel;
                     mainTab.SelectedItem = tabItem;
                     mainTab.Visibility = Visibility.Visible;
                     break;
                 case "OpenFood_C_Sharp.Modele.Vehicule":
+                    b = new Button();
+                    b.Content = "X";
                     Vehicle v = (Vehicle)ListElements.SelectedItem;
                     VehiclePage vehiclePage = new VehiclePage(v.url);
                     Frame vehiculeFrame = new Frame();
                     vehiculeFrame.Content = vehiclePage;
-                    tabItem = new TabItem();
-                    tabItem.Header = v.ToString();
+                    tabItem = new TabItem(); 
+                    stack = new StackPanel();
+                    stack.Children.Add(b);
+                    l = new Label();
+                    l.Content = v.ToString();
+                    stack.Children.Add(l);
+                    stack.Orientation = Orientation.Horizontal;
+                    tabItem.Header = stack;
                     tabItem.Content = vehiculeFrame;
                     mainTab.Items.Add(tabItem);
+                    b.Tag = tabItem;
+                    b.Click += removePanel;
                     mainTab.SelectedItem = tabItem;
                     mainTab.Visibility = Visibility.Visible;
                     break;
                 case "OpenFood_C_Sharp.Modele.Species":
+                    b = new Button();
+                    b.Content = "X ";
                     Species s = (Species)ListElements.SelectedItem;
                     SpeciesPage speciesPage = new SpeciesPage(s.url);
                     Frame speciesFrame = new Frame();
                     speciesFrame.Content = speciesPage;
                     tabItem = new TabItem();
-                    tabItem.Header = s.ToString();
+                    stack = new StackPanel();
+                    stack.Children.Add(b);
+                    l = new Label();
+                    l.Content = s.ToString();
+                    stack.Children.Add(l);
+                    stack.Orientation = Orientation.Horizontal;
+                    tabItem.Header = stack;
                     tabItem.Content = speciesFrame;
                     mainTab.Items.Add(tabItem);
+                    b.Tag = tabItem;
+                    b.Click += removePanel;
                     mainTab.SelectedItem = tabItem;
                     mainTab.Visibility = Visibility.Visible;
                     break;
                 case "OpenFood_C_Sharp.Modele.Planet":
+                    b = new Button();
+                    b.Content = "X";
                     Planet pla = (Planet)ListElements.SelectedItem;
                     PlanetPage planetPage = new PlanetPage(pla.url);
                     Frame planetFrame = new Frame();
-                    planetFrame.Content = planetFrame;
+                    planetFrame.Content = planetPage;
                     tabItem = new TabItem();
-                    tabItem.Header = pla.ToString();
+                    stack = new StackPanel();
+                    stack.Children.Add(b);
+                    l = new Label();
+                    l.Content = pla.ToString();
+                    stack.Children.Add(l);
+                    stack.Orientation = Orientation.Horizontal;
+                    tabItem.Header = stack;
                     tabItem.Content = planetFrame;
                     mainTab.Items.Add(tabItem);
+                    b.Click += removePanel;
                     mainTab.SelectedItem = tabItem;
                     mainTab.Visibility = Visibility.Visible;
                     break;
@@ -204,6 +254,12 @@ namespace OpenFood_C_Sharp
                 ListElements.Items.Add(pla);
             }
 
+        }
+        private void removePanel(object sender, EventArgs e)
+        {
+            
+            Console.WriteLine(((Button)sender).Tag);
+            mainTab.Items.Remove(((Button)sender).Tag);
         }
         
 
