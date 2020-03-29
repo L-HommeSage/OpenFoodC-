@@ -65,10 +65,10 @@ namespace OpenFood_C_Sharp.ViewModel
             return JsonConvert.DeserializeObject<List<Planet>>(results.ToString());
 
         }
-        public static Frame CallPlanet(object sender, MouseEventArgs e, ListBox l)
+        public static Frame CallPlanet(object sender, MouseEventArgs e, ListBox l,String lastUrl)
         {
             Planet p = (Planet)l.SelectedItem;
-            PlanetPage planetPage = new PlanetPage(p.url);
+            PlanetPage planetPage = new PlanetPage(p.url,lastUrl) ;
             TabItem tabItem = new TabItem();
             Frame tabFrame = new Frame();
             tabFrame.Content = planetPage;

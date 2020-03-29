@@ -22,32 +22,44 @@ namespace OpenFood_C_Sharp.View
     /// </summary>
     public partial class VehiclePage : Page
     {
-        public VehiclePage(String url)
+        Vehicle vehicle;
+        String backUrl;
+        public VehiclePage(String url,String backUrl)
         {
             InitializeComponent();
-            Starship starship = StarshipViewModel.GetStarship(url);
-            name.Content += ' ' + starship.name;
-            model.Content += ' ' + starship.model;
-            manufacturer.Content += ' ' + starship.manufacturer;
-            credits.Content += ' ' + starship.cost_in_credits;
-            lenght.Content += ' ' + starship.length;
-            capacity.Content += ' ' + starship.cargo_capacity;
-            Sclass.Content += ' ' + starship.starship_class;
-            speed.Content += ' ' + starship.max_atmosphering_speed;
-            consumables.Content += ' ' + starship.consumables;
-            crew.Content += ' ' + starship.crew;
-            passengers.Content += ' ' + starship.passengers;
-            created.Content += ' ' + ConvertToDateTime(starship.created);
-            edited.Content += ' ' + ConvertToDateTime(starship.edited);
+            vehicle = VehicleViewModel.GetVehicle(url);
+            this.backUrl = backUrl;
+            if (this.backUrl == "")
+            {
+                backButton.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                backButton.Visibility = Visibility.Visible;
+            }
+            name.Content += ' ' + vehicle.name;
+            model.Content += ' ' + vehicle.model;
+            manufacturer.Content += ' ' + vehicle.manufacturer;
+            credits.Content += ' ' + vehicle.cost_in_credits;
+            lenght.Content += ' ' + vehicle.length;
+            capacity.Content += ' ' + vehicle.cargo_capacity;
+            Sclass.Content += ' ' + vehicle.vehicle_class;
+            speed.Content += ' ' + vehicle.max_atmosphering_speed;
+            consumables.Content += ' ' + vehicle.consumables;
+            crew.Content += ' ' + vehicle.crew;
+            passengers.Content += ' ' + vehicle.passengers;
+            created.Content += ' ' + ConvertToDateTime(vehicle.created);
+            edited.Content += ' ' + ConvertToDateTime(vehicle.edited);
             listFilms.MouseDoubleClick += callFilm;
             listCharacters.MouseDoubleClick += callPeople;
             listFilms.Items.Clear();
             listCharacters.Items.Clear();
-            foreach (String f in starship.films)
+            backButton.Click += GoBack;
+            foreach (String f in vehicle.films)
             {
                 listFilms.Items.Add(FilmViewModel.GetFilm(f));
             }
-            foreach (String p in starship.pilots)
+            foreach (String p in vehicle.pilots)
             {
                 listCharacters.Items.Add(PeopleViewModel.GetPeople(p));
             }
@@ -70,12 +82,17 @@ namespace OpenFood_C_Sharp.View
         }
         private void callFilm(object sender, MouseEventArgs e)
         {
-            this.Content = FilmViewModel.CallFilm(sender, e, listFilms);
+            this.Content = FilmViewModel.CallFilm(sender, e, listFilms,vehicle.url);
 
         }
         private void callPeople(object sender, MouseEventArgs e)
         {
-            this.Content = PeopleViewModel.CallPeople(sender, e, listCharacters,"");
+            this.Content = PeopleViewModel.CallPeople(sender, e, listCharacters,vehicle.url);
+        }
+        private void GoBack(object sender, EventArgs e)
+        {
+            this.Content = Helpers.Helper.GoBack(backUrl);
+
         }
     }
 }

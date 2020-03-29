@@ -65,10 +65,10 @@ namespace OpenFood_C_Sharp.ViewModel
             return JsonConvert.DeserializeObject<List<Species>>(results.ToString());
 
         }
-        public static Frame CallSpecies(object sender, MouseEventArgs e, ListBox l)
+        public static Frame CallSpecies(object sender, MouseEventArgs e, ListBox l,String lastUrl)
         {
             Species s = (Species)l.SelectedItem;
-            SpeciesPage speciesPage = new SpeciesPage(s.url);
+            SpeciesPage speciesPage = new SpeciesPage(s.url,lastUrl);
             TabItem tabItem = new TabItem();
             Frame tabFrame = new Frame();
             tabFrame.Content = speciesPage;

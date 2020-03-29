@@ -22,10 +22,21 @@ namespace OpenFood_C_Sharp.View
     /// </summary>
     public partial class StarshipPage : Page
     {
-        public StarshipPage(String url)
+        Starship starship;
+        String backUrl;
+        public StarshipPage(String url,String backUrl)
         {
             InitializeComponent();
-            Starship starship = StarshipViewModel.GetStarship(url);
+            this.backUrl = backUrl;
+            if (this.backUrl == "")
+            {
+                backButton.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                backButton.Visibility = Visibility.Visible;
+            }
+            starship = StarshipViewModel.GetStarship(url);
             name.Content += ' ' + starship.name;
             model.Content += ' ' + starship.model;
             manufacturer.Content += ' ' + starship.manufacturer;
@@ -44,6 +55,7 @@ namespace OpenFood_C_Sharp.View
             listCharacters.MouseDoubleClick += callPeople;
             listFilms.Items.Clear();
             listCharacters.Items.Clear();
+            backButton.Click += GoBack;
             foreach (String f in starship.films)
             {
                 listFilms.Items.Add(FilmViewModel.GetFilm(f));
@@ -73,12 +85,17 @@ namespace OpenFood_C_Sharp.View
         }
         private void callFilm(object sender, MouseEventArgs e)
         {
-            this.Content = FilmViewModel.CallFilm(sender, e, listFilms);
+            this.Content = FilmViewModel.CallFilm(sender, e, listFilms,starship.url);
 
         }
         private void callPeople(object sender, MouseEventArgs e)
         {
-            this.Content = PeopleViewModel.CallPeople(sender, e, listCharacters,"");
+            this.Content = PeopleViewModel.CallPeople(sender, e, listCharacters, starship.url) ;
+        }
+        private void GoBack(object sender, EventArgs e)
+        {
+            this.Content = Helpers.Helper.GoBack(backUrl);
+
         }
     }
 }

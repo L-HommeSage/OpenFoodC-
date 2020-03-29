@@ -22,10 +22,21 @@ namespace OpenFood_C_Sharp.View
     /// </summary>
     public partial class SpeciesPage : Page
     {
-        public SpeciesPage(String url)
+        Species species;
+        String backUrl;
+        public SpeciesPage(String url, String backUrl)
         {
             InitializeComponent();
-            Species species = SpeciesViewModel.GetSpecies(url);
+            species = SpeciesViewModel.GetSpecies(url);
+            this.backUrl = backUrl;
+            if (this.backUrl == "")
+            {
+                backButton.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                backButton.Visibility = Visibility.Visible;
+            }
             height.Content += ' ' + species.average_height;
             lifespan.Content += ' ' + species.average_lifespan;
             classification.Content += ' ' + species.classification;
@@ -77,11 +88,16 @@ namespace OpenFood_C_Sharp.View
         }
         private void callPeople(object sender, MouseEventArgs e)
         {
-            this.Content = PeopleViewModel.CallPeople(sender, e, listPeople,"");
+            this.Content = PeopleViewModel.CallPeople(sender, e, listPeople,species.url);
         }
         private void callFilm(object sender, MouseEventArgs e)
         {
-            this.Content = FilmViewModel.CallFilm(sender, e, listFilms);
+            this.Content = FilmViewModel.CallFilm(sender, e, listFilms,species.url) ;
+
+        }
+        private void GoBack(object sender, EventArgs e)
+        {
+            this.Content = Helpers.Helper.GoBack(backUrl);
 
         }
     }

@@ -9,10 +9,57 @@ using OpenFood_C_Sharp.Modele;
 using System.Net.Http.Headers;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
-
-
+using OpenFood_C_Sharp.ViewModel;
+using System.Windows.Controls;
+using OpenFood_C_Sharp.View;
 
 namespace OpenFood_C_Sharp.Helpers
 {
-    
+    class Helper
+    {
+        public static Frame GoBack(String backUrl)
+        {
+            Frame frame = new Frame();
+            switch (parseUrl(backUrl))
+            {
+                case "planets":
+                    PlanetPage planetPage = new PlanetPage(backUrl,"");
+                    Frame planetFrame = new Frame();
+                    frame.Content = planetPage;
+                    break;
+                case "species":
+                    SpeciesPage speciesPage = new SpeciesPage(backUrl,"");
+                    Frame speciesFrame = new Frame();
+                    frame.Content = speciesPage;
+                    break;
+                case "vehicles":
+                    VehiclePage vehiclePage = new VehiclePage(backUrl,"");
+                    frame.Content = vehiclePage;
+                    break;
+                case "starships":
+                    StarshipPage starshipPage = new StarshipPage(backUrl,"");
+                    frame.Content = starshipPage;
+                    break;
+                case "people":
+                    PeoplePage peoplePage = new PeoplePage(backUrl, "");
+                    frame.Content = peoplePage;
+                    break;
+                case "films":
+                    FilmPage filmPage = new FilmPage(backUrl, "");
+                    frame.Content = filmPage;
+                    break;
+            }
+            return frame;
+
+        }
+        private static String parseUrl(String url)
+        {
+            String baseUrl = "https://swapi.co/api/";
+            String type = url.Replace(baseUrl, "");
+            type = type.Split('/')[0];
+            Console.WriteLine(type);
+            return type;
+        }
+    }
+
 }

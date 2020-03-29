@@ -64,10 +64,10 @@ namespace OpenFood_C_Sharp.ViewModel
             return JsonConvert.DeserializeObject<List<Film>>(results.ToString());
 
         }
-        public static Frame CallFilm(object sender, MouseEventArgs e, ListBox l)
+        public static Frame CallFilm(object sender, MouseEventArgs e, ListBox l,String lastUrl)
         {
             Film f = (Film)l.SelectedItem;
-            FilmPage filmPage = new FilmPage(f.url);
+            FilmPage filmPage = new FilmPage(f.url,lastUrl);
             TabItem tabItem = new TabItem();
             Frame tabFrame = new Frame();
             tabFrame.Content = filmPage;

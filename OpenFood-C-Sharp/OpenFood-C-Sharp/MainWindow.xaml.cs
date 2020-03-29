@@ -82,7 +82,7 @@ namespace OpenFood_C_Sharp
                     b = new Button();
                     b.Content = "X ";
                     Film f = (Film)ListElements.SelectedItem;
-                    FilmPage filmPage = new FilmPage(f.url);
+                    FilmPage filmPage = new FilmPage(f.url,"");
                     Frame filmPageFrame = new Frame();
                     filmPageFrame.Content = filmPage;
                     tabItem = new TabItem();
@@ -104,7 +104,7 @@ namespace OpenFood_C_Sharp
                     b = new Button();
                     b.Content = "X ";
                     Starship star = (Starship)ListElements.SelectedItem;
-                    StarshipPage starshipPage = new StarshipPage(star.url);
+                    StarshipPage starshipPage = new StarshipPage(star.url,"");
                     Frame starsShipFrame = new Frame();
                     starsShipFrame.Content = starshipPage;
                     tabItem = new TabItem();
@@ -126,7 +126,7 @@ namespace OpenFood_C_Sharp
                     b = new Button();
                     b.Content = "X";
                     Vehicle v = (Vehicle)ListElements.SelectedItem;
-                    VehiclePage vehiclePage = new VehiclePage(v.url);
+                    VehiclePage vehiclePage = new VehiclePage(v.url,"");
                     Frame vehiculeFrame = new Frame();
                     vehiculeFrame.Content = vehiclePage;
                     tabItem = new TabItem(); 
@@ -148,7 +148,7 @@ namespace OpenFood_C_Sharp
                     b = new Button();
                     b.Content = "X ";
                     Species s = (Species)ListElements.SelectedItem;
-                    SpeciesPage speciesPage = new SpeciesPage(s.url);
+                    SpeciesPage speciesPage = new SpeciesPage(s.url,"");
                     Frame speciesFrame = new Frame();
                     speciesFrame.Content = speciesPage;
                     tabItem = new TabItem();
@@ -170,7 +170,7 @@ namespace OpenFood_C_Sharp
                     b = new Button();
                     b.Content = "X";
                     Planet pla = (Planet)ListElements.SelectedItem;
-                    PlanetPage planetPage = new PlanetPage(pla.url);
+                    PlanetPage planetPage = new PlanetPage(pla.url,"");
                     Frame planetFrame = new Frame();
                     planetFrame.Content = planetPage;
                     tabItem = new TabItem();

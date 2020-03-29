@@ -23,13 +23,22 @@ namespace OpenFood_C_Sharp
     /// </summary>
     public partial class PeoplePage : Page
     {
+        People people;
         String backUrl;
         public PeoplePage(String url,String backUrl)
         {
             InitializeComponent();
-            People people = PeopleViewModel.GetPeople(url);
+            people = PeopleViewModel.GetPeople(url);
             name.Content += people.name;
             this.backUrl = backUrl;
+            if (this.backUrl == "")
+            {
+                backButton.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                backButton.Visibility = Visibility.Visible;
+            }
             mass.Content += ' '+people.mass;
             height.Content += ' ' + people.height;
             birth.Content += ' ' + people.birth_year;
@@ -86,37 +95,22 @@ namespace OpenFood_C_Sharp
         }
         private void GoBack(object sender, EventArgs e)
         {
-           switch(parseUrl(backUrl))
-            {
-                case "planets":
-                    PlanetPage planetPage = new PlanetPage(backUrl);
-                    Frame planetFrame = new Frame();
-                    planetFrame.Content = planetPage;
-                    this.Content = planetFrame;
-                    break;
-            }
-           
+            this.Content = Helpers.Helper.GoBack(backUrl);
+
         }
         private void callFilm(object sender, MouseEventArgs e)
         {
-            this.Content = FilmViewModel.CallFilm(sender, e, listFilms);
+            this.Content = FilmViewModel.CallFilm(sender, e, listFilms, people.url);
             
         }
         private void callStarship(object sender, MouseEventArgs e)
         {
-            this.Content = StarshipViewModel.CallStarship(sender, e, listStarships);
+            this.Content = StarshipViewModel.CallStarship(sender, e, listStarships,people.url) ;
         }
         private void CallVehicule(object sender, MouseEventArgs e)
         {
-            this.Content = VehicleViewModel.CallVehicule(sender, e, listVehicles);
+            this.Content = VehicleViewModel.CallVehicule(sender, e, listVehicles,people.url);
         }
-        private String parseUrl(String url)
-        {
-            String baseUrl = "https://swapi.co/api/";
-            String type =  url.Replace(baseUrl, "");
-            type = type.Split('/')[0];
-            Console.WriteLine(type);
-            return type;
-        }
+        
     }
 }

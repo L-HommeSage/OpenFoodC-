@@ -65,10 +65,10 @@ namespace OpenFood_C_Sharp.ViewModel
             return JsonConvert.DeserializeObject<List<Vehicle>>(results.ToString());
 
         }
-        public static Frame CallVehicule(object sender, MouseEventArgs e, ListBox l)
+        public static Frame CallVehicule(object sender, MouseEventArgs e, ListBox l,String lastUrl)
         {
             Vehicle v = (Vehicle)l.SelectedItem;
-            VehiclePage vehiclePage = new VehiclePage(v.url);
+            VehiclePage vehiclePage = new VehiclePage(v.url,lastUrl);
             TabItem tabItem = new TabItem();
             Frame tabFrame = new Frame();
             tabFrame.Content = vehiclePage;
