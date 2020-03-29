@@ -114,14 +114,24 @@ namespace OpenFood_C_Sharp
                     mainTab.Visibility = Visibility.Visible;
                     break;
                 case "OpenFood_C_Sharp.Modele.Species":
+                   Button b = new Button();
+                    b.Content = "X ";
                     Species s = (Species)ListElements.SelectedItem;
                     SpeciesPage speciesPage = new SpeciesPage(s.url);
                     Frame speciesFrame = new Frame();
                     speciesFrame.Content = speciesPage;
                     tabItem = new TabItem();
-                    tabItem.Header = s.ToString();
+                    StackPanel stack = new StackPanel();
+                    stack.Children.Add(b);
+                    Label l = new Label();
+                    l.Content = s.ToString();
+                    stack.Children.Add(l);
+                    stack.Orientation = System.Windows.Controls.Orientation.Horizontal;
+                    tabItem.Header = stack;
                     tabItem.Content = speciesFrame;
                     mainTab.Items.Add(tabItem);
+                    b.Tag = tabItem;
+                    b.Click += removePanel; 
                     mainTab.SelectedItem = tabItem;
                     mainTab.Visibility = Visibility.Visible;
                     break;
@@ -129,7 +139,7 @@ namespace OpenFood_C_Sharp
                     Planet pla = (Planet)ListElements.SelectedItem;
                     PlanetPage planetPage = new PlanetPage(pla.url);
                     Frame planetFrame = new Frame();
-                    planetFrame.Content = planetFrame;
+                    planetFrame.Content = planetPage;
                     tabItem = new TabItem();
                     tabItem.Header = pla.ToString();
                     tabItem.Content = planetFrame;
@@ -204,6 +214,12 @@ namespace OpenFood_C_Sharp
                 ListElements.Items.Add(pla);
             }
 
+        }
+        private void removePanel(object sender, EventArgs e)
+        {
+            
+            Console.WriteLine(((Button)sender).Tag);
+            mainTab.Items.Remove(((Button)sender).Tag);
         }
         
 
