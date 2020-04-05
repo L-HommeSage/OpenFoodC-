@@ -37,6 +37,7 @@ namespace OpenFood_C_Sharp.View
             {
                 backButton.Visibility = Visibility.Visible;
             }
+            name.Content += species.name;
             height.Content += ' ' + species.average_height;
             lifespan.Content += ' ' + species.average_lifespan;
             classification.Content += ' ' + species.classification;

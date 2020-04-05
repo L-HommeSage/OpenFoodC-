@@ -88,15 +88,15 @@ namespace OpenFood_C_Sharp.View
         }
         private void callStarship(object sender, MouseEventArgs e)
         {
-            this.Content = StarshipViewModel.CallStarship(sender, e, ListSpaceShip);
+            this.Content = StarshipViewModel.CallStarship(sender, e, ListSpaceShip, backUrl);
         }
         private void CallVehicule(object sender, MouseEventArgs e)
         {
-            this.Content = VehicleViewModel.CallVehicule(sender, e, ListVehicles);
+            this.Content = VehicleViewModel.CallVehicule(sender, e, ListVehicles, backUrl);
         }
         private void CallSpecies(object sender, MouseEventArgs e)
         {
-            this.Content = SpeciesViewModel.CallSpecies(sender, e, ListSpecies);
+            this.Content = SpeciesViewModel.CallSpecies(sender, e, ListSpecies, backUrl);
         }
         private static string ConvertToDateTime(string value)
         {

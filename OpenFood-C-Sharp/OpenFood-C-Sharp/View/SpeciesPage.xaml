@@ -50,7 +50,8 @@
 
         <ListBox x:Name="listPeople" HorizontalAlignment="Left" Height="78" Margin="227,238,0,0" VerticalAlignment="Top" Width="182"/>
         <ListBox x:Name="listFilms" HorizontalAlignment="Left" Height="78" Margin="227,129,0,0" VerticalAlignment="Top" Width="182"/>
-        
+        <Button x:Name="backButton" Content="Back" Height="20" Margin="329,341,80,0" VerticalAlignment="Top" RenderTransformOrigin="2,1"/>
+
 
 
 
