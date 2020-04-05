@@ -1,0 +1,55 @@
+﻿<Page x:Class="OpenFood_C_Sharp.View.PlanetPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OpenFood_C_Sharp.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="500"
+      Background="#FF020202"
+      Title="PlanetPage">
+    <Page.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="#FFFFD54E"/>
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#FFFFD54E"/>
+            <Setter Property="Background" Value="#FF020202"/>
+            <Setter Property="Foreground" Value="#FFFFD54E"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BorderBrush" Value="#FFFFD54E"/>
+            <Setter Property="Background" Value="#FF020202"/>
+            <Setter Property="FontFamily" Value="Segoe UI Black"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="#FFFFD54E"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+
+        </Style>
+    </Page.Resources>
+
+    <Grid HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="500">
+        <Label x:Name="name"  FontSize="40" FontWeight="Bold" Margin="10,10,10,328"></Label>
+        <Label x:Name="diameter" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.716,-1.984">Diameter:</Label>
+        <Label x:Name="orbital" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.716,-1.984">Orbital period:</Label>
+        <Label x:Name="rotation" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top">Rotation period:</Label>
+        <Label x:Name="climate" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.716,-1.984">Climate:</Label>
+        <Label x:Name="gravity" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.716,-1.984">Gravity:</Label>
+        <Label x:Name="Water" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top">Water surface:</Label>
+        <Label x:Name="terrain" HorizontalAlignment="Left" Margin="10,233,0,0" VerticalAlignment="Top">Terrain:</Label>
+        <Label x:Name="population" HorizontalAlignment="Left" Margin="10,259,0,0" VerticalAlignment="Top">Population:</Label>
+        <Label x:Name="edited" HorizontalAlignment="Left" Margin="10,339,0,0" VerticalAlignment="Top">Edited:</Label>
+        <Label x:Name="created" HorizontalAlignment="Left" Margin="10,313,0,0" VerticalAlignment="Top">Created:</Label>
+
+        <Label Content="Residents:" HorizontalAlignment="Left" Margin="227,207,0,0" VerticalAlignment="Top"/>
+        <Label Content="Films:" HorizontalAlignment="Left" Margin="227,103,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="listResidents" HorizontalAlignment="Left" Height="78" Margin="227,238,0,0" VerticalAlignment="Top" Width="193"/>
+        <ListBox x:Name="listFilms" HorizontalAlignment="Left" Height="78" Margin="227,129,0,0" VerticalAlignment="Top" Width="193"/>
+
+
+        <Button x:Name="backButton" Content="Back" Height="20" Margin="10,300,140,0" VerticalAlignment="Top" RenderTransformOrigin="2,1"/>
+
+    </Grid>
+</Page>

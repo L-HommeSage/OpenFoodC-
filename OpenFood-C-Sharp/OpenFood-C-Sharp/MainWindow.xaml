@@ -5,9 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OpenFood_C_Sharp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Label>test</Label>
-        
+        Background="#FF020202"
+        Title="Star Wars Api" Height="632" Width="968.2">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="menuButton">
+            <Setter Property="BorderBrush" Value="#FFFFD54E"/>
+            <Setter Property="Background" Value="#FF020202"/>
+            <Setter Property="FontFamily" Value="Segoe UI Black"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Foreground" Value="#FFFFD54E"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+
+        </Style>
+    </Window.Resources>
+
+    <Grid HorizontalAlignment="Left" Height="601" VerticalAlignment="Top" Width="958">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="210*"/>
+            <ColumnDefinition Width="672*"/>
+
+
+        </Grid.ColumnDefinitions>
+        <Button x:Name="peopleButton" Style="{StaticResource menuButton}" Content="People" HorizontalAlignment="Left" Height="40" Margin="10,120,0,0" VerticalAlignment="Top" Width="169"/>
+        <Button x:Name="planetsButton" Style="{StaticResource menuButton}" Content="Planets" HorizontalAlignment="Left" Height="40" Margin="10,165,0,0" VerticalAlignment="Top" Width="169"/>
+        <Button x:Name="filmsButton" Style="{StaticResource menuButton}" Content="Films" HorizontalAlignment="Left" Height="40" Margin="10,210,0,0" VerticalAlignment="Top" Width="169"/>
+        <Button x:Name="speciesButton" Style="{StaticResource menuButton}" Content="Species" HorizontalAlignment="Left" Height="40" Margin="10,255,0,0" VerticalAlignment="Top" Width="169"/>
+        <Button x:Name="vehiclesButton" Style="{StaticResource menuButton}" Content="Vehicles" HorizontalAlignment="Left" Height="40" Margin="10,300,0,0" VerticalAlignment="Top" Width="169"/>
+        <Button x:Name="starshipsButton" Style="{StaticResource menuButton}" Content="Starships" HorizontalAlignment="Left" Height="40" Margin="10,345,0,0" VerticalAlignment="Top" Width="169"/>
+        <ListBox x:Name="ListElements" HorizontalAlignment="Left" Height="581" Margin="4,10,0,0" VerticalAlignment="Top" Width="218" Grid.Column="1" BorderThickness="2" BorderBrush="#FFFFD54E" Background="#FF020202" Foreground="#FFFFD54E"/>
+
+        <Image HorizontalAlignment="Left" Height="171" VerticalAlignment="Top" Width="359" Source="Opera Instantané_2020-03-29_124837_fr.wikipedia.org.png" Margin="308,34,0,0" Grid.Column="1" />
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="308,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="359" FontFamily="Arial" Foreground="#FF4BD5EE" FontSize="16" TextAlignment="Center"><Run Text="A long time ago in a galaxy far,"/><Run Text=" "/><Run Text="far away...."/></TextBlock>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="308,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="180" Width="359" FontFamily="Arial" Foreground="#FFFFD54E" TextAlignment="Justify"><Run Text="The archives speak"/><Run Text=" "/><Run Text="!"/><Run Text=" Three agents of the rebellion met to form the first intergalactic archives. The great commander LAMBERT ALEXANDRE, the jedi ANTONIADIS PABLO and the smuggler ALAMELAMA-TISSIER traveled all the universe to bring us all this precious information."/><LineBreak/><Run/><LineBreak/><Run Text="Don't let them fall into the wrong hands. Supreme Leader KYLO REN rages in search of th"/><Run Text="ese"/><Run Text=" archives, determined to destroy any threat to his power...."/><LineBreak/><Run/><LineBreak/><Run Text="These archives could be made from an old programming language C# long forgotten by "/><Run Text="the diabolical FIRST ORDER."/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text=" "/></TextBlock>
+        <TabControl x:Name="mainTab" TabStripPlacement="Top" Grid.Column="1" Margin="239,10,10.4,10" Background="#FF020202" BorderThickness="2" BorderBrush="#FFFFD54E">
+            <Image HorizontalAlignment="Left" Height="171" VerticalAlignment="Top" Width="359" Source="Opera Instantané_2020-03-29_124837_fr.wikipedia.org.png" Margin="64,164,0,0" Grid.Column="1" />
+            
+        </TabControl>
+
+
+
+
     </Grid>
+
 </Window>
+
